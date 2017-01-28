@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+@article\PYG{n+nb}{\PYGZob{}}Gettys90,
+author = \PYG{n+nb}{\PYGZob{}}Jim Gettys and Phil Karlton and Scott McGregor\PYG{n+nb}{\PYGZcb{}},
+title = \PYG{n+nb}{\PYGZob{}}The \PYG{n+nb}{\PYGZob{}}X\PYG{n+nb}{\PYGZcb{}} Window System, Version 11\PYG{n+nb}{\PYGZcb{}},
+journal = \PYG{n+nb}{\PYGZob{}}Software Practice and Experience\PYG{n+nb}{\PYGZcb{}},
+volume = \PYG{n+nb}{\PYGZob{}}20\PYG{n+nb}{\PYGZcb{}},
+number = \PYG{n+nb}{\PYGZob{}}S2\PYG{n+nb}{\PYGZcb{}},
+year = \PYG{n+nb}{\PYGZob{}}1990\PYG{n+nb}{\PYGZcb{}},
+abstract = \PYG{n+nb}{\PYGZob{}}A technical overview of the X11 functionality.  This is an update
+of the X10 TOG paper by Scheifler \PYG{k}{\PYGZbs{}\PYGZam{}} Gettys.\PYG{n+nb}{\PYGZcb{}}
+\PYG{n+nb}{\PYGZcb{}}
+\end{Verbatim}

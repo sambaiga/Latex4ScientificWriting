@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+  \PYG{k}{\PYGZbs{}usepackage}\PYG{n+na}{[final]}\PYG{n+nb}{\PYGZob{}}microtype\PYG{n+nb}{\PYGZcb{}} \PYG{c}{\PYGZpc{}improves the spacing between words and letters}
+  \PYG{k}{\PYGZbs{}usepackage}\PYG{n+nb}{\PYGZob{}}amsmath\PYG{n+nb}{\PYGZcb{}} \PYG{c}{\PYGZpc{}introduces several improvements for math environments}
+  \PYG{k}{\PYGZbs{}usepackage}\PYG{n+nb}{\PYGZob{}}graphicx\PYG{n+nb}{\PYGZcb{}} \PYG{c}{\PYGZpc{} for inserting image in latex document}
+\end{Verbatim}

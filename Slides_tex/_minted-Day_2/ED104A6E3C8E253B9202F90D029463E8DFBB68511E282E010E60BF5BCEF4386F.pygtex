@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{\PYGZbs{}begin}\PYG{n+nb}{\PYGZob{}}table\PYG{n+nb}{\PYGZcb{}}
+\PYG{k}{\PYGZbs{}caption}\PYG{n+nb}{\PYGZob{}}title\PYG{n+nb}{\PYGZcb{}}
+\PYG{k}{\PYGZbs{}label}\PYG{n+nb}{\PYGZob{}}tab:xxx\PYG{n+nb}{\PYGZcb{}}
+\PYG{c}{\PYGZpc{}Place the table here}
+\PYG{k}{\PYGZbs{}end}\PYG{n+nb}{\PYGZob{}}table\PYG{n+nb}{\PYGZcb{}}
+\end{Verbatim}

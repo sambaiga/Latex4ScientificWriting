@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{\PYGZbs{}begin}\PYG{n+nb}{\PYGZob{}}itemize\PYG{n+nb}{\PYGZcb{}}
+\PYG{k}{\PYGZbs{}item} The first item
+\PYG{k}{\PYGZbs{}item} The second item
+\PYG{k}{\PYGZbs{}item}  The third item
+\PYG{k}{\PYGZbs{}end}\PYG{n+nb}{\PYGZob{}}itemize\PYG{n+nb}{\PYGZcb{}}
+\end{Verbatim}

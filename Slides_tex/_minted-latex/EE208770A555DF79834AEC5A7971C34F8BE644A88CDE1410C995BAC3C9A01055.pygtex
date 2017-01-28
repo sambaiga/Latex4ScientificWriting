@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{l+s+sb}{\PYGZbs{}[}
+\PYG{n+nb}{  }\PYG{n+nv}{\PYGZbs{}begin}\PYG{n+nb}{\PYGZob{}matrix\PYGZcb{}}
+\PYG{n+nb}{  }\PYG{n+nv}{\PYGZbs{}alpha}\PYG{n+nb}{\PYGZam{} }\PYG{n+nv}{\PYGZbs{}beta}\PYG{n+nb}{\PYGZca{}\PYGZob{}}\PYG{o}{*}\PYG{n+nb}{\PYGZcb{}}
+\PYG{n+nb}{  }\PYG{n+nv}{\PYGZbs{}gamma}\PYG{n+nb}{\PYGZca{}\PYGZob{}}\PYG{o}{*}\PYG{n+nb}{\PYGZcb{}\PYGZam{} }\PYG{n+nv}{\PYGZbs{}delta}
+\PYG{n+nb}{  }\PYG{n+nv}{\PYGZbs{}end}\PYG{n+nb}{\PYGZob{}matrix\PYGZcb{}}
+\PYG{l+s}{\PYGZbs{}]}
+\end{Verbatim}

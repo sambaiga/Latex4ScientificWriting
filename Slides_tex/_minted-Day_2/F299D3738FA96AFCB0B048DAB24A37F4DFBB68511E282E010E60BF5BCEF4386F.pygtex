@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{\PYGZbs{}setcounter}\PYG{n+nb}{\PYGZob{}}secnumdepth\PYG{n+nb}{\PYGZcb{}\PYGZob{}}3\PYG{n+nb}{\PYGZcb{}}
+ \PYG{c}{\PYGZpc{} determines up to what level the sectioning titles are numbered}
+\PYG{k}{\PYGZbs{}setcounter}\PYG{n+nb}{\PYGZob{}}tocdepth\PYG{n+nb}{\PYGZcb{}\PYGZob{}}3\PYG{n+nb}{\PYGZcb{}}
+\PYG{k}{\PYGZbs{}pagenumbering}\PYG{n+nb}{\PYGZob{}}roman\PYG{n+nb}{\PYGZcb{}}
+\end{Verbatim}

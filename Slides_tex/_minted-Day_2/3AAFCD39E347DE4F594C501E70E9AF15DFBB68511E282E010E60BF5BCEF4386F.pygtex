@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+	\PYG{k}{\PYGZbs{}bibliographystyle}\PYG{n+nb}{\PYGZob{}}apa\PYG{n+nb}{\PYGZcb{}} \PYG{c}{\PYGZpc{}\PYGZbs{}bibliographystyle\PYGZob{}apacite\PYGZcb{}}
+	\PYG{k}{\PYGZbs{}newpage}
+	\PYG{k}{\PYGZbs{}bibliography}\PYG{n+nb}{\PYGZob{}}bib/References\PYG{n+nb}{\PYGZus{}}NILM\PYG{n+nb}{\PYGZcb{}}
+\end{Verbatim}

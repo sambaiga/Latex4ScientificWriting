@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{\PYGZbs{}begin}\PYG{n+nb}{\PYGZob{}}center\PYG{n+nb}{\PYGZcb{}}
+\PYG{n+nb}{\PYGZob{}}\PYG{k}{\PYGZbs{}large} \PYG{k}{\PYGZbs{}textbf}\PYG{n+nb}{\PYGZob{}}CERTIFICATION\PYG{n+nb}{\PYGZcb{}\PYGZcb{}} \PYG{k}{\PYGZbs{}\PYGZbs{}}
+\PYG{k}{\PYGZbs{}vspace}\PYG{n+nb}{\PYGZob{}}2in\PYG{n+nb}{\PYGZcb{}}
+\PYG{k}{\PYGZbs{}end}\PYG{n+nb}{\PYGZob{}}center\PYG{n+nb}{\PYGZcb{}}
+The undersigned certify that they have read and hereby recommend
+for acceptance by the University of Dodoma dissertation entitled
+\PYG{k}{\PYGZbs{}textbf}\PYG{n+nb}{\PYGZob{}}Maximizing LTE performance with MIMO Systems\PYG{n+nb}{\PYGZcb{}} in fulfillment
+of the requirements for the degree of \PYG{k}{\PYGZbs{}textbf}\PYG{n+nb}{\PYGZob{}}Master of Science in
+Telecommunications Engineering\PYG{n+nb}{\PYGZcb{}} of the University of Dodoma.
+\end{Verbatim}

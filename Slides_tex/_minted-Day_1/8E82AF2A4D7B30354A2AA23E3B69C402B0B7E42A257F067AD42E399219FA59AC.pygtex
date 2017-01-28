@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+	\PYG{l+s+sb}{\PYGZbs{}[}\PYG{n+nb}{ A\PYGZus{}\PYGZob{}m,n\PYGZcb{} }\PYG{o}{=}
+\PYG{n+nv}{\PYGZbs{}begin}\PYG{n+nb}{\PYGZob{}pmatrix\PYGZcb{}}
+\PYG{n+nb}{a\PYGZus{}\PYGZob{}}\PYG{l+m}{1}\PYG{n+nb}{,}\PYG{l+m}{1}\PYG{n+nb}{\PYGZcb{} \PYGZam{} a\PYGZus{}\PYGZob{}}\PYG{l+m}{1}\PYG{n+nb}{,}\PYG{l+m}{2}\PYG{n+nb}{\PYGZcb{} \PYGZam{} }\PYG{n+nv}{\PYGZbs{}cdots}\PYG{n+nb}{ \PYGZam{} a\PYGZus{}\PYGZob{}}\PYG{l+m}{1}\PYG{n+nb}{,n\PYGZcb{} }\PYG{n+nv}{\PYGZbs{}\PYGZbs{}}
+\PYG{n+nb}{a\PYGZus{}\PYGZob{}}\PYG{l+m}{2}\PYG{n+nb}{,}\PYG{l+m}{1}\PYG{n+nb}{\PYGZcb{} \PYGZam{} a\PYGZus{}\PYGZob{}}\PYG{l+m}{2}\PYG{n+nb}{,}\PYG{l+m}{2}\PYG{n+nb}{\PYGZcb{} \PYGZam{} }\PYG{n+nv}{\PYGZbs{}cdots}\PYG{n+nb}{ \PYGZam{} a\PYGZus{}\PYGZob{}}\PYG{l+m}{2}\PYG{n+nb}{,n\PYGZcb{} }\PYG{n+nv}{\PYGZbs{}\PYGZbs{}}
+\PYG{n+nv}{\PYGZbs{}vdots}\PYG{n+nb}{  \PYGZam{} }\PYG{n+nv}{\PYGZbs{}vdots}\PYG{n+nb}{  \PYGZam{} }\PYG{n+nv}{\PYGZbs{}ddots}\PYG{n+nb}{ \PYGZam{} }\PYG{n+nv}{\PYGZbs{}vdots}\PYG{n+nb}{  }\PYG{n+nv}{\PYGZbs{}\PYGZbs{}}
+\PYG{n+nb}{a\PYGZus{}\PYGZob{}m,}\PYG{l+m}{1}\PYG{n+nb}{\PYGZcb{} \PYGZam{} a\PYGZus{}\PYGZob{}m,}\PYG{l+m}{2}\PYG{n+nb}{\PYGZcb{} \PYGZam{} }\PYG{n+nv}{\PYGZbs{}cdots}\PYG{n+nb}{ \PYGZam{} a\PYGZus{}\PYGZob{}m,n\PYGZcb{}}
+\PYG{n+nv}{\PYGZbs{}end}\PYG{n+nb}{\PYGZob{}pmatrix\PYGZcb{}}
+\PYG{l+s}{\PYGZbs{}]}
+\end{Verbatim}

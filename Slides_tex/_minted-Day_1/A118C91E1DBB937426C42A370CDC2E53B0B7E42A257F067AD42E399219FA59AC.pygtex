@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c}{\PYGZpc{}To set margin}
+\PYG{k}{\PYGZbs{}usepackage}\PYG{n+na}{[top=2in,bottom=1in,left=1in,right=1in]}\PYG{n+nb}{\PYGZob{}}geometry\PYG{n+nb}{\PYGZcb{}}
+\PYG{c}{\PYGZpc{} To specify tittle/author/date}
+\PYG{k}{\PYGZbs{}title}\PYG{n+nb}{\PYGZob{}\PYGZob{}}\PYG{k}{\PYGZbs{}LARGE} \PYG{k}{\PYGZbs{}textbf}\PYG{n+nb}{\PYGZob{}}Scintific Writing using LaTeX\PYG{n+nb}{\PYGZcb{}} \PYG{n+nb}{\PYGZcb{}\PYGZcb{}}
+\PYG{k}{\PYGZbs{}author}\PYG{n+nb}{\PYGZob{}}M.\PYGZti{}Chuwa \PYG{k}{\PYGZbs{}and} S.\PYGZti{}Nyondo\PYG{n+nb}{\PYGZcb{}}
+\PYG{k}{\PYGZbs{}date}\PYG{n+nb}{\PYGZob{}}\PYG{k}{\PYGZbs{}today}\PYG{n+nb}{\PYGZcb{}}
+\end{Verbatim}

@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+     \PYG{k}{\PYGZbs{}documentclass}\PYG{n+na}{[options]}\PYG{n+nb}{\PYGZob{}}class name\PYG{n+nb}{\PYGZcb{}}
+
+     \PYG{c}{\PYGZpc{}Preamble}
+
+     \PYG{k}{\PYGZbs{}begin}\PYG{n+nb}{\PYGZob{}}document\PYG{n+nb}{\PYGZcb{}}
+\end{Verbatim}

@@ -1,0 +1,786 @@
+% !TeX document-id = {87d6827f-5870-46b7-927e-2f8eecb71b9d}
+% !TeX TXS-program:compile = txs:///pdflatex/[--shell-escape]
+\documentclass{beamer}
+\usetheme[faculty=ped]{fibeamer}
+\usepackage[utf8]{inputenc}
+\usepackage{minted}
+\usemintedstyle{monokai}
+\usepackage[
+  main=english, %% By using `czech` or `slovak` as the main locale
+                %% instead of `english`, you can typeset the
+                %% presentation in either Czech or Slovak,
+                %% respectively.
+  czech, slovak %% The additional keys allow foreign texts to be
+]{babel}        %% typeset as follows:
+%%
+%%   \begin{otherlanguage}{czech}   ... \end{otherlanguage}
+%%   \begin{otherlanguage}{slovak}  ... \end{otherlanguage}
+%%
+%% These macros specify information about the presentation
+\title{LaTex for Scientific Writing} %% that will be typeset on the
+\subtitle{Day One} %% title page.
+\author{Anthony Faustine}
+
+%% These additional packages are used within the document:
+\usepackage{ragged2e}  % `\justifying` text
+\usepackage{booktabs}  % Tables
+\usepackage{tabularx}
+\usepackage{tikz}      % Diagrams
+\usepackage{siunitx}
+\usepackage{etoolbox}
+\usepackage[round]{natbib}
+\preto\tabular{\shorthandoff{-}}
+\usetikzlibrary{calc, shapes, backgrounds}
+\usepackage{amsmath, amssymb}
+\usepackage{url}       % `\url`s
+\usepackage{listings}  % Code listings
+\usepackage[colorinlistoftodos]{todonotes}
+\let\todox\todo
+\renewcommand\todo[1]{\todox[inline]{#1}}
+%\setbeamercovered{highly dynamic}
+\setbeamercovered{transparent}
+\frenchspacing
+\newcounter{saveenumi}
+\newcommand{\seti}{\setcounter{saveenumi}{\value{enumi}}}
+\newcommand{\conti}{\setcounter{enumi}{\value{saveenumi}}}
+
+\resetcounteronoverlays{saveenumi}
+
+\begin{document}
+  \frame{\maketitle}
+
+  \AtBeginSection[]{% Print an outline at the beginning of sections
+    \begin{frame}<beamer>
+      \frametitle{Outline}
+      \tableofcontents[currentsection]
+    \end{frame}}
+
+  \begin{darkframes}
+    
+
+
+\section{Graphics, Figures and Tables}
+
+\begin{frame}[fragile]{Tables}{Creating Tables}
+Use the tabular environment
+\begin{minted}{tex}
+\begin{tabular}[position]{column alignments}
+...
+\end{tabular}
+\end{minted}
+
+\begin{description}
+	\item[postion] is optional (vertical position): [t] (top), [c]
+	(center, this is default), [b] (bottom);
+	\item [column alignments]: l (left-justified), c (center justified),
+	and r (right-justified);
+\end{description}
+\end{frame}
+
+\begin{frame}[fragile]{Tables}{Creating Tables}
+The column data is separated by \mintinline{tex}{\\},row end is marked as \mintinline{tex}{\\} and \mintinline{tex}{\hline} draw a horizontal line.\\
+Consider the following simple table:\\
+\centering
+\begin{tabular}[t]{|l|l|}
+	\hline 
+	\textbf{Parameter} & \textbf{Value}\\
+	\hline 
+	Path loss (n) & 2.5\\
+	Model & Okumura-model\\
+	Cell-radius & $1km$\\
+	\hline
+\end{tabular}
+
+\end{frame}
+
+\begin{frame}[fragile]{Tables}{Creating Tables}
+Latex code for previous simple table\\
+	\begin{minted}{tex}
+\centering
+\begin{tabular}[t]{|l|l|}
+\hline 
+\textbf{Parameter} & \textbf{Value}\\
+\hline 
+Path loss (n) & 2.5\\
+Model & Okumura-model\\
+Cell-radius & $1km$\\
+\hline
+\end{tabular}
+	\end{minted}
+	
+	
+\end{frame}
+
+
+\begin{frame}[fragile]{Tables}{Creating Tables}
+The \alert{\texttt{booktabs }} package  improve the quality  LaTeX tables.
+\begin{itemize}
+	\item The horizontal rules are called with \mintinline{tex}{\toprule}, \mintinline{tex}{\midrule} and \mintinline{tex}{\bottomrule} instead of \mintinline{tex}{\hline} command.
+	\item The \mintinline{tex}{\cmidrule} is used for mid-rules that span specified columns.
+	\item The content of the tables is filled in the same manner as before.
+	\item To use this package first you need to add this code in preamble. \mintinline{tex}{\usepackage{booktabs}}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Tables}{Creating Tables}
+	\alert{Example:} consider the following code:\
+	\begin{minted}{tex}
+\centering
+\begin{tabular}[t]{ll}
+\toprule
+\textbf{Parameter} & \textbf{Value}\\
+\midrule
+Path loss (n) & 2.5\\
+Model & Okumura-model\\
+Cell-radius & $1km$\\
+\bottomrule
+\end{tabular}
+	\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Tables}{Creating Tables}
+	\alert{Example:} The previous code will result into the following table
+	
+	\centering
+	\begin{tabular}[t]{ll}
+	\toprule
+	\textbf{Parameter} & \textbf{Value}\\
+	\midrule
+	Path loss (n) & 2.5\\
+	Model & Okumura-model\\
+	Cell-radius & $1km$\\
+	\bottomrule
+	\end{tabular}
+	
+\end{frame}
+
+\begin{frame}[fragile]{Tables}{Creating Tables}
+To draw multicolumn table like this one:\\
+\centering
+
+\begin{tabular}{llr}
+	\toprule
+	\multicolumn{2}{c}{Name} \\
+	\cmidrule(lr){1-2}
+	First name	& Last Name	& Grade \\
+	\midrule
+	John 		    & Doe	  		& $7.5$ \\
+	Richard 	  & Miles		  & $2$ \\
+	\bottomrule
+\end{tabular}
+\\
+Use the following command: \mintinline{tex}{\multicolumn{n}{alignment}{item}}
+\end{frame}
+
+\begin{frame}[fragile]{Tables}{Creating Tables}
+	Use the following command: \mintinline{tex}{\multicolumn{n}{alignment}{item}}
+	\begin{description}
+		\item [n]: is the number of columns to be spanned.
+		\item [alignemnt]: is one of the \mintinline{tex}{l, r and c}.
+		\item [item]: is the content.
+	\end{description}
+\alert{Example:}
+\begin{minted}[numbersep=5pt]{tex}
+
+\multicolumn{2}{c}{Name} 
+
+\end{minted}
+
+\end{frame}
+
+\begin{frame}[fragile]{Tables}{Creating Tables}
+
+\begin{minted}{tex}
+\begin{tabular}{llr}
+\toprule
+\multicolumn{2}{c}{Name} \\
+\cmidrule(r){1-2}
+First name & Last Name	& Grade \\
+\midrule
+John  & Doe	& $7.5$ \\
+Richard   & Miles  & $2$ \\
+\bottomrule
+\end{tabular}
+\end{minted}
+	
+\end{frame}
+
+\begin{frame}[fragile]{Tables}{Floating Tables}
+ Latex	provides the \texttt{table}  environments for typesetting floating tables.
+ \begin{itemize}
+ 	\item A table environment is set up as follows:
+ 	\begin{minted}{tex}
+\begin{table}
+\caption{title}
+\label{tab:xxx}
+%Place the table here
+\end{table}
+ 	\end{minted}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Tables}{Floating Tables}
+	\begin{description}
+		\item [\mintinline{tex}{\caption}] command is optional and used to set table tittle.
+		\item [\mintinline{tex}{\label}] command is also optional and is used to reference
+		the table’s number.
+	\end{description}
+\alert{Example:} To produce the following table
+\begin{table}
+\caption{Simulation Parameters}
+\label{tab:model_parameter}
+	\begin{tabular}[t]{ll}
+	\toprule
+	\textbf{Parameter} & \textbf{Value}\\
+	\midrule
+	Path loss (n) & 2.5\\
+	Model & Okumura-model\\
+	Cell-radius & $1km$\\
+	\bottomrule
+\end{tabular}
+\end{table}
+\end{frame}
+
+
+\begin{frame}[fragile]{Tables}{Floating Tables}
+\begin{minted}{tex}
+\begin{table}
+\caption{Simulation Parameters}
+\label{tab:model_parameter}
+\begin{tabular}[t]{ll}
+\toprule
+\textbf{Parameter} & \textbf{Value}\\
+\midrule
+Path loss (n) & 2.5\\
+Model & Okumura-model\\
+Cell-radius & $1km$\\
+\bottomrule
+\end{tabular}
+\end{table}
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Graphics}{Include Graphics}
+The easiest way to include images in your document is to use
+the \texttt{graphicx} package.\\
+Load the package graphicx:\mintinline{tex}{ \usepackage{graphicx}}
+\begin{itemize}
+	\item The image format available depend on what you’re using to compile.
+	\item If you’re compiling using pdflatex (recommended), then you
+	can use jpg, png, pdf, or eps files.
+	\item Place the file in the same directory as your tex file, and use the
+	\mintinline{tex}{\includegraphics[key-values]{imagefile}} command.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Graphics}{Include Graphics}
+	\alert{Example:} 
+	\mintinline{tex}{\includegraphics[scale=0.2]{images/bulb}}
+	\begin{center}
+     \includegraphics[scale=0.2]{images/bulb}
+	\end{center}
+	
+\end{frame}
+
+\begin{frame}[fragile]{Graphics}{Include Graphics}
+	The image can be scaled to a specified height and/or width as follows:
+	\mintinline{tex}{\includegraphics[height=2in,width=1in]{images/bulb}}
+	\begin{center}
+	\includegraphics[height=1.5in,width=1in]{images/bulb}
+	\end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Graphics}{Floating images}
+	Use \texttt{figure} environment:
+	\begin{center}
+		\begin{minted}{tex}
+		\begin{figure}
+			\includegraphics{file}
+			\caption{title }
+			\label{fig:xxx}
+		\end{figure}
+	\end{minted}
+	\end{center}
+\end{frame}
+
+
+
+\begin{frame}[fragile]{Graphics}{Floating images}
+		\begin{figure}
+		\includegraphics[scale=0.15]{images/bulb}
+		\caption{Green Bulb} 
+		\label{fig:bulb}
+		\end{figure}
+	To print the list of figures and tables use \mintinline{tex}{ \listoffigures} and \mintinline{tex}{\listoftables}  respectively.\\		
+	
+\end{frame}
+
+\section{Cross-references text}
+\begin{frame}[fragile]{Cross-reference text}
+	Use \mintinline{tex}{\label} and \mintinline{tex}{\ref} for automatic numbering.\\
+	
+	The amsmath package provides \mintinline{tex}{\eqref} for referencing equations. \\
+	
+	\alert{Example}
+	
+	\begin{minted}{tex}
+\section{Introduction}\label{sec:intro}
+In Section \ref{sec:method}, we \ldots
+\section{Method}\label{sec:method}
+	\end{minted}
+	
+\end{frame}
+
+\begin{frame}[fragile]{Cross-reference text}
+		\alert{Example:} Cross-reference figure and table.\\
+		
+Figure \ref{fig:bulb} show a green bulb. \begin{center}
+	$\Downarrow$
+\end{center} \mintinline{tex}{Figure \ref{fig:bulb} show a green bulb} \\
+
+The simulation data are shown in table \ref{tab:model_parameter} \begin{center}
+$\Downarrow$
+\end{center} \mintinline{tex}{The simulation data are shown in table \ref{tab:parameter}} \\
+
+
+	
+\end{frame}
+
+\begin{frame}[fragile]{Cross-reference text}
+	\alert{Example: Cross-reference equation}
+	
+	\begin{equation} \label{eq:euler}
+	e^{i\pi} + 1 = 0
+	\end{equation}
+	By \eqref{eq:euler}, we have \ldots
+	\begin{center}
+		$\Downarrow$
+	\end{center}
+\begin{minted}{tex}
+\begin{equation} \label{eq:euler}
+e^{i\pi} + 1 = 0
+\end{equation}
+By \eqref{eq:euler}, we have \ldots
+\begin{center}
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Notes with todonotes}
+The \mintinline{tex}{\todo} command from the \texttt{todonotes} package is great for leaving notes to yourself and your collaborators.\\
+
+Include this package in preamble: \mintinline{tex}{\usepackage[colorinlistoftodos]{todonotes}}
+
+\alert{Example:}\\
+\mintinline{tex}{\todo{Plain todonotes.}} \\
+	
+\mintinline{tex}{\todo[color=blue!40]{Todonote with a different color.}}  
+
+\end{frame}
+
+\begin{frame}[fragile]{Notes with todonotes}
+\begin{itemize}
+	\item Only inline notes are supported with
+	beamer, but margin notes are supported for normal
+	documents.
+	\item There is also a handy \mintinline{tex}{\listoftodos} command.
+	\begin{itemize}
+		\item To use this load: \mintinline{tex}{\usepackage[colorlinks]{hyperref}} before \mintinline{tex}{\usepackage[colorinlistoftodos]{todonotes}}
+	\end{itemize}
+\end{itemize}
+	
+\end{frame}
+
+\section{Bibliography}
+
+\begin{frame}[<+->]{Bibliography}
+To manage and include references in a LATEX document use \textsc{BibTeX}.\\
+\begin{description}[long text]
+	\item[BibTex]: a bibliographic tool that is used with LaTeX to help organize the user's references and create a bibliography.
+	\begin{itemize}
+		\item A BibTeX user creates a bibliography file with \mintinline{tex}{.bib} extension.
+		\item The \mintinline{tex}{.bib} file is called a BibTEX database $\Rightarrow$ a text file containing data in a structured format.
+		\item Each entry in the \mintinline{tex}{.bib} file is formatted with a certain structure and is given a "key" by which the author can refer to it in the source file.
+	\end{itemize}
+\end{description}
+\end{frame}
+
+\begin{frame}[fragile]{Bibliography}{The BibTEX Format}
+	The generic form of a BibTEX entry is
+	\begin{center}
+	\begin{minted}{tex}
+@type{key, field1 = ‘‘ ’’ or {} or none,
+ field2 = ‘‘ ’’ or {} or none, 
+ ... 
+ fieldn = ‘‘ ’’ or {} or none 
+ }
+	\end{minted}
+\end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Bibliography}{The BibTEX Format}
+	\alert{Example:}
+	\flushleft{
+\begin{minted}{tex}
+@article{Gettys90,
+author = {Jim Gettys and Phil Karlton and Scott McGregor},
+title = {The {X} Window System, Version 11},
+journal = {Software Practice and Experience},
+volume = {20},
+number = {S2},
+year = {1990},
+abstract = {A technical overview of the X11 functionality.  This is an update
+of the X10 TOG paper by Scheifler \& Gettys.}
+}
+\end{minted}
+}
+\end{frame}
+
+\begin{frame}[<+->]{Bibliography}{Export .bib file from Mendeley}
+\begin{itemize}
+	\item Open Mendeley, and within "My Library" found on the left, select references that you would like to texport to BibTeX.
+	\item In the drop-down menu in the toolbar at the top of the screen, click "File $\rightarrow$ Export.
+	\item In the dropdown list of filetypes chose "BibTeX (*.bib)" and save to the same location as the LaTeX file.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[<+->]{Bibliography}{Auto-syncing from Mendeley to BibTeX}
+	Mendeley has the built-in capability to auto sync a BibTeX file when changes have been made to your Mendeley library.\\
+	To set up the Mendeley auto sync:
+	\begin{itemize}
+		\item Go to Mendeley Desktop preferences.
+		\item Select the BibTeX tab. 
+		\item Select the box labeled “Enable BibTeX syncing” and select the BiBTeX file option you prefer.
+		\item Select the location where you want the generated .bib file(s) to be stored (this should be the same location as your LaTeX file(s)).
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[<+->]{Bibliography}{Using BibTEX in your LATEX Document}
+	To use .bib file in  latex document:
+	\begin{itemize}
+		\item We can use \mintinline{tex}{natbib} packages with \mintinline{tex}{\citet and \citep} commands $\Rightarrow$ \href{http://merkel.texture.rocks/Latex/natbib.php}{Reference sheet for natbib usage}.
+		\item Load with \mint{tex}{\usepackage[options]{natbib}} See list of  at the end of \href{http://merkel.texture.rocks/Latex/natbib.php}{Reference sheet for natbib usage}.
+		\item Example: \mintinline{tex}{\usepackage[round]{natbib}}
+		\item Include .bib file at the end of document with \mintinline{tex}{\bibliography{bib file}} and specify a bibliographic styles \mintinline{tex}{\bibliographystyle{stylename}}.
+		
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]{Bibliography}{The BibTEX Format}
+	\alert{Example:}
+	
+	\begin{minted}{tex}
+
+	
+	\bibliographystyle{apa} %\bibliographystyle{apacite} 
+	\newpage
+	\bibliography{bib/References_NILM}
+		\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Bibliography}{The BibTEX Format}
+	\alert{Example:} 
+	\begin{itemize}
+		\item According to \citet{Barker2015} \ldots $\Rightarrow$ \mintinline{tex}{According to \cite{Alcala2015} \ldots}
+		\item \ldots energy is important \citep{Barker2015}  $\Rightarrow$ \mintinline{tex}{\ldots energy is important \citep{Barker2015}}
+	\end{itemize}	
+\end{frame}
+
+\section{Journal and Thesis}
+
+\begin{frame}[<+->]{Thesis with Latex}
+	\alert{Folder structure}: create a new folder (your project directory). 
+	\begin{itemize}
+		\item  Add some additional folders within this folder:
+		\begin{description}
+			\item [images] $\Rightarrow$ will contain all images.
+			\item [tex] $\Rightarrow$ will contain \textsc{.tex} file.
+			\item [bib] $\Rightarrow$ will contain bibliography files.
+		\end{description}
+	   \item This will help you keep the overview about your files.
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]{Thesis with Latex}
+	\alert{Creating the main LaTeX document}: create a main tex file using document class report and save it into tex folder as Thesis.tex.
+	\begin{minted}{tex}
+\documentclass[a4paper,12pt]{report} 
+
+\begin{document}
+
+Hello World!
+
+\end{document}
+	\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Thesis with Latex}
+	\alert{Document structure}: Let’s create the main document structure for our thesis as shown below.
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+	\begin{itemize}
+		\item Title page
+		\item Abstract
+		\item Table of contents
+		\item List of Algorithms
+		\item List of Figures
+		\item List of Tables
+		\item Introduction
+	\end{itemize}
+     \end{column}
+		\begin{column}{0.5\textwidth}
+			\begin{itemize}
+			\item Literature Review
+		\item Research Methodology
+		\item Discussion		
+		\item Conclusion
+		\item Acknowledgment
+		\item Appendices
+		\item Bibliography
+	\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{Thesis with Latex}
+	\begin{itemize}
+		\item First create the table of contents inside the begin and end document: \mintinline{tex}{\tableofcontents} $\Rightarrow$ a headline with Content will appear.
+		\item To organize your files, create a new .tex file for each chapter of your thesis.
+		\begin{itemize}
+			\item Lets create a new file and save it as Introduction.tex into the tex subfolder.
+			\begin{minted}{tex}
+\chapter{Introduction}
+\lipsum[2]
+\section{Motivation}
+\lipsum[4]
+\section{Problem Statement}
+\lipsum[3]
+\section{Objectives}
+\lipsum[2]
+			\end{minted}
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[<+->]{Thesis with Latex}
+	\begin{itemize}
+		\item Import the file into you main document (Thesis.tex) after \mintinline{tex}{\tableofcontents} as: \mintinline{tex}{\input{tex/Introduction}} 
+		\item Great, we just started creating our document structure. 
+		\item Lets put all the other chapters in there as well.
+		\mintinline{tex}{\input{tex/Literature}}\\
+		\mintinline{tex}{\input{tex/Methodology}}\\
+		\mintinline{tex}{\input{tex/Results}}\\
+		\mintinline{tex}{\input{tex/Conclusion}}
+		\item Don’t forget to create the files, \mintinline{tex}{\chapter{Some Name}}  and save them.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[<+->]{Thesis with Latex}
+	\begin{itemize}
+		\item Next add the additional lists just after \mintinline{tex}{\tableofcontents}\\
+		\mintinline{tex}{\listoffigures}\\
+		\mintinline{tex}{\listoftables}\\
+		\mintinline{tex}{\listofalgorithms}
+		\item The list of algorithms needs package: \mintinline{tex}{\usepackage{algorithm2e}}
+	\end{itemize}
+More details on how to typeset algorithms \href{https://en.wikibooks.org/wiki/LaTeX/Algorithms}{here.} 
+\end{frame}
+
+\begin{frame}[<+->]{Thesis with Latex}
+	\alert{Add Bibliography}
+	\begin{itemize}
+		\item Auto-sync your Mendely bibliography library to bib subfolder.
+		\item Add it to your main tex file and define a bibliography style just before \mintinline{tex}{\end{document}} \\
+		\mintinline{tex}{\bibliographystyle{apa}}\\
+		\mintinline{tex}{\bibliography{bib/References}}
+		\item Include the natbib package in preamble for citation \mintinline{tex}{\usepackage[round]{natbib}} 
+		\item For example to cite, write in any of you chapter files: \mintinline{tex}{	We refer to \citet{Mvuma2016} for things you ...}
+	\end{itemize}
+ 
+\end{frame}
+
+\begin{frame}[<+->]{Thesis with Latex}
+	\alert{The title page}
+	\begin{itemize}
+		\item  Add a title page. Most universities require to use a predefined title page.
+		\item Create a title.tex file and save it in tex subfolder. Define the title page as title page by inserting; \mintinline{tex}{\begin{titlepage}
+				tittle page contents
+		\end{titlepage}}
+	\item Input the file just after \mintinline{tex}{\begin{document}} as follows:\\
+		
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Thesis with Latex}
+	\alert{Sample Tittle Page}
+	\begin{minted}[baselinestretch=1,fontsize=\footnotesize]{tex}
+\begin{titlepage}
+\centering
+{\Large \textbf{ MAXIMIZING LTE PERFORMACE WITH MIMO SYSTEMS}} \\
+\vspace{0.5in}
+\includegraphics[width=0.4\textwidth]{images/logo} \\
+\vspace{1in}
+{\large \textbf {\textbf{BY}}} \\
+\vspace{.5in}
+{\large \textbf {\textbf{JAMES KALUMUNA}}} \\
+\vspace{1in}
+{\large A dissertation in (partial) fulfillment of the requirements for the degree of
+Master of Science in Telecommunications Engineering of the University of Dodoma} \\
+\vspace{0.5in}
+{\large University of Dodoma } \\
+\vspace{0.1in}
+{\large Jun 2015}
+\end{titlepage}
+
+	\end{minted}
+	
+\end{frame}
+
+
+\begin{frame}[fragile]{Thesis with Latex}
+	\alert{Add certification Page}: Create a Certification.tex file and save it in tex subfolder, define it  by inserting:
+	
+	\begin{minted}[baselinestretch=1,fontsize=\footnotesize]{tex}
+\begin{center}
+{\large \textbf{CERTIFICATION}} \\
+\vspace{2in}
+\end{center}
+The undersigned certify that they have read and hereby recommend 
+for acceptance by the University of Dodoma dissertation entitled 
+\textbf{Maximizing LTE performance with MIMO Systems} in fulfillment
+of the requirements for the degree of \textbf{Master of Science in 
+Telecommunications Engineering} of the University of Dodoma.	
+	\end{minted}
+	
+Input the file just after \mintinline{tex}{\input{tex/tittle}}.	
+\end{frame}
+
+
+\begin{frame}[fragile]{Thesis with Latex}
+	\alert{Add certification Page}\\
+	Includes supervisors approval as follows
+	
+	\begin{minted}[baselinestretch=1,fontsize=\footnotesize]{tex}
+	\vspace{1in}
+	\centering
+	Approved by: 
+	\bigbreak
+	
+\noindent\begin{tabular}{ll}
+\makebox[2.5in]{\hrulefill} & \makebox[2.5in]{\hrulefill}\\
+Prof A.N Mvuma (First Supervisor) & Date\\[8ex]% adds space between the two sets of signatures
+\makebox[2.5in]{\hrulefill} & \makebox[2.5in]{\hrulefill}\\
+Dr. Hector Mongi (Second Supervisor) & Date\\
+\end{tabular}
+		
+	\end{minted}	
+\end{frame}
+
+\begin{frame}[fragile]{Thesis with Latex}
+Add empty pages between the title, abstract and table of contents and change the numbering to be roman.	The real Arabic page numbering of the thesis should start  with the first page of the introduction.
+	\begin{itemize}
+	\item First include the following commands into the preamble:
+\begin{minted}[baselinestretch=1,fontsize=\footnotesize]{tex}
+\setcounter{secnumdepth}{3}
+ % determines up to what level the sectioning titles are numbered
+\setcounter{tocdepth}{3}
+\pagenumbering{roman}
+\end{minted}
+\item Then add \mintinline{tex}{\newcounter{rom}} just after the \mintinline{tex}{\begin{document}}.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Thesis with Latex}
+	\begin{itemize}
+		\item Also add the following commands just before \mintinline{tex}{\tableofcontents}.
+		\begin{minted}[baselinestretch=1,fontsize=\footnotesize]{tex}
+		\addtocounter{rom}{1}\setcounter{page}{2}~
+		\newpage\thispagestyle{plain}\setcounter{page}{3}
+		\end{minted}
+		\item Finally add the following command just before \mintinline{tex}{\input{tex/introduction}}.
+		\begin{minted}[baselinestretch=1,fontsize=\footnotesize]{tex}
+		\newpage\thispagestyle{plain}~
+		\clearpage
+		\pagenumbering{arabic}
+		\end{minted}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Thesis with Latex}
+	\begin{minted}[baselinestretch=1,fontsize=\footnotesize]{tex}
+	documentclass[a4paper,12pt]{report} 
+	
+	\usepackage{lipsum}  %Generate dummy text (lorem ipsum) in your document
+	\usepackage{algorithm2e}  %	
+	\usepackage[round]{natbib} %for citation
+	\usepackage{graphicx} % for images and figures
+	
+	\setcounter{secnumdepth}{3}
+	\setcounter{tocdepth}{3}
+	\pagenumbering{roman}
+	
+	\begin{document}
+	\newcounter{rom}	
+	\input{tex/tittle} % The tittle page
+	\input{tex/Certification}
+	
+	\addtocounter{rom}{1}\setcounter{page}{2}~
+	\newpage\thispagestyle{plain}\setcounter{page}{3}
+	
+	\tableofcontents % Create table of comments
+	
+	\end{document}
+	
+	\end{minted}
+	
+\end{frame}
+
+\begin{frame}[fragile]{Thesis with Latex}
+	\begin{minted}[baselinestretch=1,fontsize=\footnotesize]{tex}
+
+	\listoffigures % list of figures
+	\listoftables  % list of tables
+	\listofalgorithms % list of algorithms
+	
+	\newpage\thispagestyle{plain}~
+	\clearpage
+	\pagenumbering{arabic}
+	
+	\input{tex/introduction}
+	\input{tex/Literature}
+	\input{tex/Methodology}
+	\input{tex/Results}
+	\input{tex/Conclusion}
+	
+	\bibliographystyle{apa}
+	\bibliography{bib/References}
+	
+	\end{document}
+	
+	\end{minted}
+	
+\end{frame}
+
+
+\section{Presentation Slides}
+
+\begin{frame}
+	\centering
+	\Huge{THANK YOU}
+\end{frame}
+
+\begin{frame}[t, allowframebreaks]
+
+\frametitle{References}
+\bibliographystyle{apa} %\bibliographystyle{apacite} 
+\newpage
+\bibliography{bib/References_NILM}
+\end{frame} 
+
+    \end{darkframes}
+
+
+\end{document}

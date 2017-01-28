@@ -1,0 +1,24 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+	documentclass[a4paper,12pt]\PYG{n+nb}{\PYGZob{}}report\PYG{n+nb}{\PYGZcb{}}
+
+	\PYG{k}{\PYGZbs{}usepackage}\PYG{n+nb}{\PYGZob{}}lipsum\PYG{n+nb}{\PYGZcb{}}  \PYG{c}{\PYGZpc{}Generate dummy text (lorem ipsum) in your document}
+	\PYG{k}{\PYGZbs{}usepackage}\PYG{n+nb}{\PYGZob{}}algorithm2e\PYG{n+nb}{\PYGZcb{}}  \PYG{c}{\PYGZpc{}}
+	\PYG{k}{\PYGZbs{}usepackage}\PYG{n+na}{[round]}\PYG{n+nb}{\PYGZob{}}natbib\PYG{n+nb}{\PYGZcb{}} \PYG{c}{\PYGZpc{}for citation}
+	\PYG{k}{\PYGZbs{}usepackage}\PYG{n+nb}{\PYGZob{}}graphicx\PYG{n+nb}{\PYGZcb{}} \PYG{c}{\PYGZpc{} for images and figures}
+
+	\PYG{k}{\PYGZbs{}setcounter}\PYG{n+nb}{\PYGZob{}}secnumdepth\PYG{n+nb}{\PYGZcb{}\PYGZob{}}3\PYG{n+nb}{\PYGZcb{}}
+	\PYG{k}{\PYGZbs{}setcounter}\PYG{n+nb}{\PYGZob{}}tocdepth\PYG{n+nb}{\PYGZcb{}\PYGZob{}}3\PYG{n+nb}{\PYGZcb{}}
+	\PYG{k}{\PYGZbs{}pagenumbering}\PYG{n+nb}{\PYGZob{}}roman\PYG{n+nb}{\PYGZcb{}}
+
+	\PYG{k}{\PYGZbs{}begin}\PYG{n+nb}{\PYGZob{}}document\PYG{n+nb}{\PYGZcb{}}
+	\PYG{k}{\PYGZbs{}newcounter}\PYG{n+nb}{\PYGZob{}}rom\PYG{n+nb}{\PYGZcb{}}
+	\PYG{k}{\PYGZbs{}input}\PYG{n+nb}{\PYGZob{}}tex/tittle\PYG{n+nb}{\PYGZcb{}} \PYG{c}{\PYGZpc{} The tittle page}
+	\PYG{k}{\PYGZbs{}input}\PYG{n+nb}{\PYGZob{}}tex/Certification\PYG{n+nb}{\PYGZcb{}}
+
+	\PYG{k}{\PYGZbs{}addtocounter}\PYG{n+nb}{\PYGZob{}}rom\PYG{n+nb}{\PYGZcb{}\PYGZob{}}1\PYG{n+nb}{\PYGZcb{}}\PYG{k}{\PYGZbs{}setcounter}\PYG{n+nb}{\PYGZob{}}page\PYG{n+nb}{\PYGZcb{}\PYGZob{}}2\PYG{n+nb}{\PYGZcb{}}\PYGZti{}
+	\PYG{k}{\PYGZbs{}newpage\PYGZbs{}thispagestyle}\PYG{n+nb}{\PYGZob{}}plain\PYG{n+nb}{\PYGZcb{}}\PYG{k}{\PYGZbs{}setcounter}\PYG{n+nb}{\PYGZob{}}page\PYG{n+nb}{\PYGZcb{}\PYGZob{}}3\PYG{n+nb}{\PYGZcb{}}
+
+	\PYG{k}{\PYGZbs{}tableofcontents} \PYG{c}{\PYGZpc{} Create table of comments}
+
+	\PYG{k}{\PYGZbs{}end}\PYG{n+nb}{\PYGZob{}}document\PYG{n+nb}{\PYGZcb{}}
+\end{Verbatim}
