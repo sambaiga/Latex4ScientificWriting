@@ -1,6 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-	\PYG{k}{\PYGZbs{}usepackage}\PYG{n+nb}{\PYGZob{}}graphicx\PYG{n+nb}{\PYGZcb{}} \PYG{c}{\PYGZpc{} single argument}
-	\PYG{k}{\PYGZbs{}usepackage}\PYG{n+nb}{\PYGZob{}}amsmath, amssymb\PYG{n+nb}{\PYGZcb{}} \PYG{c}{\PYGZpc{} multiple arguments}
-	\PYG{k}{\PYGZbs{}documentclass}\PYG{n+na}{[a4paper,11pt]}\PYG{n+nb}{\PYGZob{}}article\PYG{n+nb}{\PYGZcb{}} \PYG{c}{\PYGZpc{} several options}
-	\PYG{k}{\PYGZbs{}usepackage}\PYG{n+na}{[final]}\PYG{n+nb}{\PYGZob{}}microtype\PYG{n+nb}{\PYGZcb{}}  \PYG{c}{\PYGZpc{} single options}
-\end{Verbatim}

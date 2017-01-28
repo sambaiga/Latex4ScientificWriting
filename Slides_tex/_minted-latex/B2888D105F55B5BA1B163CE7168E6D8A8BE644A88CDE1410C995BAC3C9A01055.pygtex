@@ -1,3 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{k}{\PYGZbs{}begin}\PYG{n+nb}{\PYGZob{}}equation\PYG{n+nb}{\PYGZcb{}}\PYG{k}{\PYGZbs{}int}\PYG{n+nb}{\PYGZus{}\PYGZob{}}0\PYG{n+nb}{\PYGZcb{}\PYGZca{}\PYGZob{}}\PYG{k}{\PYGZbs{}pi}\PYG{n+nb}{\PYGZcb{}}\PYG{k}{\PYGZbs{}sin} x \PYG{k}{\PYGZbs{},}dx = 2\PYG{k}{\PYGZbs{}end}\PYG{n+nb}{\PYGZob{}}equation\PYG{n+nb}{\PYGZcb{}}
-\end{Verbatim}

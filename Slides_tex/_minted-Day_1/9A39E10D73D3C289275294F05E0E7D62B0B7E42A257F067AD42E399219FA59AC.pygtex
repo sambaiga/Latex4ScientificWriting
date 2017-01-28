@@ -1,9 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{l+s+sb}{\PYGZbs{}[}
-\PYG{n+nb}{f}\PYG{o}{(}\PYG{n+nb}{x}\PYG{o}{)}\PYG{n+nb}{ }\PYG{o}{=}
-\PYG{n+nv}{\PYGZbs{}begin}\PYG{n+nb}{\PYGZob{}cases\PYGZcb{}}
-\PYG{n+nb}{x \PYGZam{} }\PYG{n+nv}{\PYGZbs{}text}\PYG{n+nb}{\PYGZob{}if \PYGZcb{} x }\PYG{n+nv}{\PYGZbs{}neq}\PYG{n+nb}{ }\PYG{l+m}{0}\PYG{n+nb}{ }\PYG{n+nv}{\PYGZbs{}\PYGZbs{}}
-\PYG{n+nv}{\PYGZbs{}frac}\PYG{n+nb}{\PYGZob{}}\PYG{n+nv}{\PYGZbs{}sin}\PYG{n+nb}{ x\PYGZcb{}\PYGZob{}x\PYGZcb{}\PYGZam{} }\PYG{n+nv}{\PYGZbs{}text}\PYG{n+nb}{\PYGZob{}otherwise\PYGZcb{}}
-\PYG{n+nv}{\PYGZbs{}end}\PYG{n+nb}{\PYGZob{}cases\PYGZcb{}}
-\PYG{l+s}{\PYGZbs{}]}
-\end{Verbatim}

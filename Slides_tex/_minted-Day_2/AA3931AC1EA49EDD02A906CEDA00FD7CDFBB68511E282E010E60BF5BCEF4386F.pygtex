@@ -1,7 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-@type\PYG{n+nb}{\PYGZob{}}key, field1 = ‘‘ ’’ or \PYG{n+nb}{\PYGZob{}\PYGZcb{}} or none,
- field2 = ‘‘ ’’ or \PYG{n+nb}{\PYGZob{}\PYGZcb{}} or none,
- ...
- fieldn = ‘‘ ’’ or \PYG{n+nb}{\PYGZob{}\PYGZcb{}} or none
- \PYG{n+nb}{\PYGZcb{}}
-\end{Verbatim}

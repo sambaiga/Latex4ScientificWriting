@@ -1,3 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{k}{\PYGZbs{}int} \PYG{n+nb}{\PYGZus{}}0\PYG{n+nb}{\PYGZca{}\PYGZob{}}\PYG{k}{\PYGZbs{}infinity} \PYG{n+nb}{\PYGZcb{}},\PYG{k}{\PYGZbs{}sum} \PYG{n+nb}{\PYGZus{}\PYGZob{}}i=1\PYG{n+nb}{\PYGZcb{}\PYGZca{}}n,\PYG{k}{\PYGZbs{}prod} \PYG{n+nb}{\PYGZus{}\PYGZob{}}n=1\PYG{n+nb}{\PYGZcb{}\PYGZca{}}N 
-\end{Verbatim}

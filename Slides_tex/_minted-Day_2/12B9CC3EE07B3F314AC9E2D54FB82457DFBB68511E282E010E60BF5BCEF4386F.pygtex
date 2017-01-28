@@ -1,7 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{k}{\PYGZbs{}begin}\PYG{n+nb}{\PYGZob{}}equation\PYG{n+nb}{\PYGZcb{}} \PYG{k}{\PYGZbs{}label}\PYG{n+nb}{\PYGZob{}}eq:euler\PYG{n+nb}{\PYGZcb{}}
-e\PYG{n+nb}{\PYGZca{}\PYGZob{}}i\PYG{k}{\PYGZbs{}pi}\PYG{n+nb}{\PYGZcb{}} + 1 = 0
-\PYG{k}{\PYGZbs{}end}\PYG{n+nb}{\PYGZob{}}equation\PYG{n+nb}{\PYGZcb{}}
-By \PYG{k}{\PYGZbs{}eqref}\PYG{n+nb}{\PYGZob{}}eq:euler\PYG{n+nb}{\PYGZcb{}}, we have \PYG{k}{\PYGZbs{}ldots}
-\PYG{k}{\PYGZbs{}begin}\PYG{n+nb}{\PYGZob{}}center\PYG{n+nb}{\PYGZcb{}}
-\end{Verbatim}
