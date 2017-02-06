@@ -8,10 +8,16 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % !TeX TXS-program:compile = txs:///pdflatex/[--shell-escape]
 \documentclass{beamer}
+%\documentclass[handout]{beamer}
+%\usepackage{pgfpages}
+%\pgfpagesuselayout{2 on 1}[a4paper,border shrink=5mm]
 \usetheme[faculty=ped]{fibeamer}
 \usepackage[utf8]{inputenc}
 \usepackage{minted}
 \usemintedstyle{monokai}
+\usepackage{etoolbox}
+\AtBeginEnvironment{minted}{\singlespacing%
+	\fontsize{10}{10}\selectfont}
 \usepackage[
   main=english, %% By using `czech` or `slovak` as the main locale
                 %% instead of `english`, you can typeset the
@@ -24,9 +30,9 @@
 %%   \begin{otherlanguage}{slovak}  ... \end{otherlanguage}
 %%
 %% These macros specify information about the presentation
-\title{LaTex for Scientific Writing} %% that will be typeset on the
-\subtitle{Day One} %% title page.
-\author{Anthony Faustine}
+\title{ LaTex for Scientific Writing} %% that will be typeset on the
+\subtitle{Day 1} %% title page.
+\author{\href{sambaiga.github.io}{Anthony Faustine} \\sambaiga@gmail.com}
 
 %% These additional packages are used within the document:
 \usepackage{ragged2e}  % `\justifying` text
@@ -39,6 +45,8 @@
 \usepackage{url}       % `\url`s
 \usepackage{listings}  % Code listings
 \usepackage[colorinlistoftodos]{todonotes}
+\usepackage[absolute,overlay]{textpos}
+\usepackage{tcolorbox}
 %\setbeamercovered{highly dynamic}
 \setbeamercovered{transparent}
 \frenchspacing
@@ -167,24 +175,11 @@
 
 \section{Latex Command}
 
-\begin{frame}[fragile]{LaTeX Hello word}
-\begin{itemize}
-	\item Create a new file in TexStudio with ending \textbf{.tex}.
-	\item Type in the following code:	
-	
-	\begin{minted}{tex}
-	\begin{document}
-	
-	Hello world !   % This is your content
-	
-	\end{document}
-	\end{minted}
+\begin{frame}[fragile]{Activity}
+\begin{center}
+	{\Large \textbf{Activity 1}}
+\end{center}
 
-\item Run quick build.
-\end{itemize}	
-\begin{figure}
-\includegraphics[scale=0.4]{images/hellotex}
-\end{figure}
 \end{frame}
 
 \begin{frame}{Commands}
@@ -197,7 +192,6 @@ Commands are case sensitive, and take one of the following two formats:
 		are added in square brackets [ ].
 	\end{itemize}
 \end{frame}
-
 
 
 
@@ -337,6 +331,12 @@ content...           % document environment
 	\begin{document}
 	\end{lstlisting}}
 
+\begin{frame}[fragile]{Activity}
+	\begin{center}
+		{\Large \textbf{Activity 2}}
+	\end{center}
+	
+\end{frame}
 
 \begin{frame}[fragile]{The Preamble}
 	The preamble is where you define the style of your document
@@ -365,17 +365,28 @@ content...           % document environment
 		\item Specifying author/title/date, etc. (important if you will be making a title
 		page).
 	\end{itemize}
-\alert{Example:}
-\begin{minted}{tex}
-%To set margin
-\usepackage[top=2in,bottom=1in,left=1in,right=1in]{geometry}  	
-% To specify tittle/author/date
-\title{{\LARGE \textbf{Scintific Writing using LaTeX} }}
-\author{M.~Chuwa \and S.~Nyondo}
-\date{\today}
-\end{minted}
+
 \end{frame}
 
+
+\begin{frame}[fragile]{The Preamble}
+	\framesubtitle{Document Tittle}
+	There are two steps to give your document a title.
+	\begin{itemize}
+		\item Tell LaTeX what to put in the title, and tell LaTeX to typeset the title.
+		\item 	To specify title use the following commands in preamble:
+		\mintinline{tex}{\title{...}, \author{...}, \date{..}}.
+		\item  To display the title, use \mintinline{tex}{\maketitle} just after \mintinline{tex}{\begin{document}}.
+	\end{itemize}
+	\alert{Example:}
+	\begin{minted}{tex}
+        \title{Scintific Writing using LaTeX}
+        \author{M.~Chuwa \and S.~Nyondo}
+        \date{\today}
+	\end{minted}
+\end{frame}
+
+	
 
 \begin{frame}[fragile]{The Preamble: Packages}
 	Packages extend the basic LATEX commands.
@@ -385,12 +396,20 @@ content...           % document environment
 	\end{itemize}
   \alert{Example:}
   \begin{minted}{tex}
-  \usepackage[final]{microtype} %improves the spacing between words and letters
-  \usepackage{amsmath} %introduces several improvements for math environments
-  \usepackage{graphicx} % for inserting image in latex document
+%To set margin
+\usepackage[top=2in,bottom=1in,left=1in,right=1in]{geometry}  
+\usepackage{microtype} %improves the spacing between words and letters
+\usepackage{amsmath} %introduces several improvements for math environments
+\usepackage{graphicx} % for inserting image in latex document
   \end{minted}
 \end{frame}
 
+\begin{frame}[fragile]{Activity}
+	\begin{center}
+		{\Large \textbf{Activity 3}}
+	\end{center}
+	
+\end{frame}
 
 \begin{frame}{The Body of the Document}
 	After the preamble comes the \alert{body}.
@@ -416,25 +435,11 @@ content...           % document environment
 \end{frame}
 
 
-\begin{frame}{Typesetting Activity 1}
-	Create a new file Activity\_1.text to hold this document.
-	\begin{enumerate}
-		\item Use the article document class, with the a4paper and 12pt options. 
-		\item Create the title of your article and put two authors.
-		\item Create a section structure like shown below.\\ 1. Introduction\\ 1.1 Background \\ 2. Methods\\ 2.1 Model\\ 2.1.1 Model Assumption.
-		\item Run quick build. What do you see?
-		\seti
-	\end{enumerate}
-\end{frame}
-
-\begin{frame}{Typesetting Activity 1}
-	\begin{enumerate}
-		\conti
-		\item Add \mintinline{tex}{\maketitle} just after \mintinline{tex}{\begin{document}}
-		\item Run quick build. What do you see?
-		\item What happens if you use the *-version eg \mintinline{tex}{\subsection*{Results}}
-		\item Why is it not possible to use \mintinline{tex}{\chapter{}} , in this document?.
-	\end{enumerate}
+\begin{frame}[fragile]{Activity}
+	\begin{center}
+		{\Large \textbf{Activity 4}}
+	\end{center}
+	
 \end{frame}
 
 
@@ -613,7 +618,30 @@ The description list used to explain notations or terms
 \end{frame}
 
 
-\section{Structuring and Cross-referencing Text}
+\begin{frame}[fragile]{Activity}
+	\begin{center}
+		{\Large \textbf{Activity 6}}
+	\end{center}
+	
+\end{frame}
+
+\section{Cross-reference}\label{cross-ref}
+
+\begin{frame}[fragile]{Cross-reference}
+With the commands \mintinline{tex}{\label{key}  and \ref{key}} it is possible to refer to section numbers.
+\begin{itemize}
+	\item The command \mintinline{tex}{\label{key}} is used to set an identifier that is later used in the command \mintinline{tex}{\ref{key}} to set the reference.
+\end{itemize}
+
+\alert{Example}:\\
+Create label: \framebox[1.0\width]{\mintinline{tex}{\section{Cross-Reference}\label{cross-ref}}}\\
+
+Reference:
+\framebox[1.0\width]{\mintinline{tex}{It is not difficult to refer to Section \ref{cross-ref}}}\\
+
+Output: \framebox[1.2\width]{It is not difficult to refer to Section \ref{cross-ref}}
+\end{frame}
+
 
 
 \section{Typesetting Mathematics}
@@ -621,7 +649,7 @@ The description list used to explain notations or terms
 \begin{frame}[fragile]{Math  mode}
 The \texttt{amsmath} package is the backbone of using LaTex for typesetting math.
 \begin{itemize}
-	\item Include in preamble: \mintinline{tex}{\usepackage{amsmath, amssymb}}
+	\item Include in preamble: \mintinline{tex}{\usepackage{amsmath}}
 \end{itemize}
 The math environment" comes in two different forms:
 \begin{description}
@@ -634,22 +662,26 @@ The math environment" comes in two different forms:
 	\framesubtitle{Inline mode}
 	Several options exist:
 	\begin{itemize}
-		\item Using \mintinline{tex}{\begin{math} x + y = 2 \end{math}} $\Rightarrow$ \begin{math} x + y = 2 \end{math}
+		\item Use:\mintinline{tex}{\begin{math} x + y = 2 \end{math}} $\Rightarrow$ \begin{math} x + y = 2 \end{math}
 		\item Surround the math with \mintinline{tex}{\(x+y = 2\)}  $\Rightarrow$ \begin{math} x + y = 2 \end{math}
 		\item Surround the math with single dollar signs \mintinline{tex}{$x + y =2$} $\Rightarrow$ $x + y = 2$
 	\end{itemize}
-	Subscripts and superscripts in math mode are formed using the
 \end{frame}
 
 \begin{frame}[fragile]{Math  mode}
 	\framesubtitle{Inline mode}
-	Subscripts and superscripts in math mode are formed using the \mintinline{tex}{_} and the \mintinline{tex}{^}.
-	\alert{Example:}\\
-	\mintinline{tex}{$a_n = n^2 + 1$} $\Rightarrow$ $a_n = n^2 + 1$ \\
+	Subscripts and superscripts in math mode are formed using the \mintinline{tex}{_} and the \mintinline{tex}{^}.\\
+	\alert{Example:}
+	\begin{center}
+\framebox[1.1\width]{$a_n = n^2 + 1$} $\Rightarrow$  \framebox[1.1\width]{\mintinline{tex}{$a_n = n^2 + 1$}}
+	\end{center}
+	
 	When the subscript or superscript is more than one character,
 	you must wrap it in \{...\} to group it together.\\
-	\alert{Example:} \\
-	\mintinline{tex}{$y_{n + 1} = e^{n^2-1} + 1$} $\Rightarrow$ \(y_{n + 1} = e^{n^2-1} + 1\) \\
+	\alert{Example:} 
+	\begin{center}
+\framebox[1.1\width]{\(y_{n + 1} = e^{n^2-1} + 1\) } $\Rightarrow$  \framebox[1.1\width]{\mintinline{tex}{$y_{n + 1} = e^{n^2-1} + 1$}}
+	\end{center}
 \end{frame}
 
 \begin{frame}[fragile]{Math  mode}
@@ -671,6 +703,13 @@ The math environment" comes in two different forms:
 	}
 	\label{tab:mathsymbol}%
 	
+\alert{More math symbols and formulas}: \href{https://en.wikibooks.org/wiki/LaTeX/Mathematics}{Latex Symbols} 
+\end{frame}
+
+\begin{frame}[fragile]{Math  mode}\framesubtitle{Common Math Formula}
+	\framebox[1.2\width]{$\frac{\partial y}{\partial x}$} $\Rightarrow$  \framebox[1.1\width]{\mintinline{tex}{$\frac{\partial y}{\partial x}$}}\\
+	
+		\framebox[1.2\width]{$ \int_a^b f(x)\,dx $ } $\Rightarrow$  \framebox[1.1\width]{\mintinline{tex}{$ \int_a^b f(x)\,dx $ }}
 \end{frame}
 
 \begin{frame}[fragile]{Math  mode}
@@ -688,63 +727,66 @@ The math environment" comes in two different forms:
 The \texttt{equation} environment: \mintinline{tex}{\begin{equation}...\end{equation}} creates a displayed formula and automatically generates
 an equation number.\\
 \alert{Example:}
-	\mint{tex}{\begin{equation}\int_{0}^{\pi}\sin x \,dx = 2\end{equation}} \begin{center}$\Downarrow$\end{center} \begin{equation}\int_{0}^{\pi}\sin x \,dx = 2\end{equation}
+\begin{equation}\int_{0}^{\pi}\sin x \,dx = 2\end{equation}
+ \begin{center}$\Downarrow$\end{center} 
+\mint{tex}{\begin{equation}\int_{0}^{\pi}\sin x \,dx = 2\end{equation}} 
+\end{frame}
+
+ \begin{frame}[fragile]{Math mode}
+	\framesubtitle{Referencing equations}
+	The amsmath package provides \mintinline{tex}{\eqref{key}} for referencing equations.\\
+	\alert{Example:}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+	\begin{equation} \label{eq:1} 
+	\sum_{i=0}^{\infty} a_i x^i 
+	\end{equation}
+	The equation \ref{eq:1} is a typical power series.
+\end{column}
+\hspace{5pt}\vrule\hspace{5pt}%
+\begin{column}{0.5\textwidth}		
+\begin{minted}{tex}
+\begin{equation} \label{eq:1} 
+\sum_{i=0}^{\infty} a_i x^i 
+\end{equation}
+The equation \ref{eq:1} is a typical power series.
+\end{minted}
+\end{column}
+\end{columns}	
+\end{frame}
+
+\begin{frame}[fragile]{Activity}
+	\begin{center}
+		{\Large \textbf{Activity 7}}
+	\end{center}
+	
 \end{frame}
 
 
-\begin{frame}[fragile]{Math  mode}
-	\framesubtitle{Typesetting Activity 3}
-Open the tex file you created in Activity 2 and type the following under Model assumption subsection:
-	\begin{enumerate}
-		\item In this work we demonstrate that $\alpha^2 + \beta^2 \gg \frac{\pi}{4}$ is only correct if the Euler condition $\nabla x =0$ is satisfied.
-		\item We propose a new numerical approach to solve the time-dependent Schr\"odinger equation
-		\begin{equation} i\hbar \frac{\partial
-			\Psi(t)}{\partial t} = H(t) \Psi(t)
-		\end{equation}
-		\item Run quick build. What do you see?
-		\seti
-	\end{enumerate}
-\end{frame}
-
-
-
-\begin{frame}{Math  mode}
-	\framesubtitle{Typesetting Activity 3}
-	\begin{enumerate}
-		\conti
-		\item The relation between the golden ratio and the Fibonacci series is given by \begin{equation}
-		\phi = 1 + \sum^{\infty} _{n=1}
-		\frac{ (-1)^{n+1} }{ F_n F_{n+1} }
-		\end{equation}
-		given that the golden ratio $\phi =
-		\frac{1}{2} (1 + \sqrt{5})$
-			\item Run quick build. What do you see?
-			\item What happens if you use the *-version of equation environment \mintinline{tex}{\begin{equation*}
-				content...
-				\end{equation*}}
-		\end{enumerate}
-	\end{frame}
 
 \begin{frame}[fragile]{Math  mode}
 	\framesubtitle{Multiple Equations}
 The \mintinline{tex}{\begin{align}..\end{align}} environment is used group together several formulas or,  equations with more than one lines.
 \alert{Example:}
-\begin{center}
-\begin{minted}{tex}
-          \begin{align}
-          \alpha + \beta^2 &= 0 \\
-          \log_{10}2\alpha &=e^{\beta}-1
-          \end{align}
-\end{minted}
-\end{center}
 
-\begin{center}
-	$\Downarrow$
-\end{center}
+
+\begin{columns}
+	\begin{column}{0.5\textwidth}
+		 \begin{align}
+		\alpha + \beta^2 &= 0 \\
+		\log_{10}2\alpha &=e^{\beta}-1
+		\end{align}
+	\end{column}
+	\hspace{5pt}\vrule\hspace{5pt}%
+	\begin{column}{0.5\textwidth}		
+		\begin{minted}{tex}
 \begin{align}
 \alpha + \beta^2 &= 0 \\
 \log_{10}2\alpha &=e^{\beta}-1
 \end{align}
+		\end{minted}
+	\end{column}
+\end{columns}	
 
 
 \end{frame}
@@ -753,73 +795,67 @@ The \mintinline{tex}{\begin{align}..\end{align}} environment is used group toget
 	\framesubtitle{Multiple Equations}
 	To align several formulas or equations with more than one lines.
 	\alert{Example:}
-	\begin{center}
-		\begin{minted}{tex}
-		\begin{align*}
-		y &=x^2 + 2x -1\\
-		  &=(x+1)(2x+1) \\
-		  &=(x+1)^2
-		\end{align*}
-		\end{minted}
-	\end{center}
-	\begin{center}
-		$\Downarrow$
-	\end{center}
-	\begin{align*}
-	y &=x^2 + 2x -1\\
-	&=(x+1)(2x+1) \\
-	&=(x+1)^2
-	\end{align*}
-\end{frame}
-
-
-
-\begin{frame}[fragile]{Math  mode}
-	\framesubtitle{Matrices and Array}
-	A basic matrix may be created using the \texttt{matrix} environment.\\
-	
-\alert{Plain Matrix}\\
-	
-  \begin{columns}
-  \begin{column}{0.5\textwidth}	
-  \begin{minted}{tex}
-\[
-  \begin{matrix}
-  \alpha& \beta^{*}
-  \gamma^{*}& \delta
-  \end{matrix}
-\]
-  \end{minted}
-  \end{column}
-\begin{column}{0.5\textwidth}
-	\[
-	\begin{matrix}
-	\alpha& \beta^{*}\\
-	\gamma^{*}& \delta
-	\end{matrix}
-	\]
-\end{column}
-\end{columns}
-\end{frame}
-
-
-\begin{frame}[fragile]{Math  mode}
-	\framesubtitle{Matrices and Array}
-	A basic matrix may be created using the \texttt{matrix} environment.\\
-	
-	\alert{Bracketed matrix}; typically represents the matrix itself\\
-		
 	\begin{columns}
-		\begin{column}{0.5\textwidth}	
-	\begin{minted}{tex}
-	   \[
-		\begin{bmatrix}
-		\alpha& \beta^{*}
-		\gamma^{*}& \delta
-		\end{bmatrix}
-	   \]
+		\begin{column}{0.5\textwidth}
+				\begin{align*}
+			y &=x^2 + 2x -1\\
+			&=(x+1)(2x+1) \\
+			&=(x+1)^2
+			\end{align*}
+		\end{column}
+		\hspace{5pt}\vrule\hspace{5pt}%
+		\begin{column}{0.5\textwidth}		
+\begin{minted}{tex}
+\begin{align*}
+y &=x^2 + 2x -1\\
+&=(x+1)(2x+1) \\
+&=(x+1)^2
+\end{align*}
 			\end{minted}
 		\end{column}
+	\end{columns}	
+
+	
+\end{frame}
+
+
+
+\begin{frame}[fragile]{Math  mode}
+	\framesubtitle{Matrices and Array}
+	A basic matrix may be created using the \texttt{matrix} environment.\\
+	
+\alert{Plain Matrix}
+\begin{columns}
+	\begin{column}{0.5\textwidth}
+		\[
+		\begin{matrix}
+		\alpha& \beta^{*}\\
+		\gamma^{*}& \delta
+		\end{matrix}
+		\]
+	\end{column}
+	\hspace{5pt}\vrule\hspace{5pt}%
+	\begin{column}{0.5\textwidth}		
+		\begin{minted}{tex}
+\[
+\begin{matrix}
+\alpha& \beta^{*}\\
+\gamma^{*}& \delta
+\end{matrix}
+\]
+		\end{minted}
+	\end{column}
+\end{columns}	
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Math  mode}
+	\framesubtitle{Matrices and Array}
+
+	\alert{Bracketed matrix}; typically represents the matrix itself\\
+	
+	\begin{columns}
 		\begin{column}{0.5\textwidth}
 			\[
 			\begin{bmatrix}
@@ -828,34 +864,48 @@ The \mintinline{tex}{\begin{align}..\end{align}} environment is used group toget
 			\end{bmatrix}
 			\]
 		\end{column}
-	\end{columns}
+		\hspace{5pt}\vrule\hspace{5pt}%
+		\begin{column}{0.5\textwidth}		
+			\begin{minted}{tex}
+	\[
+	\begin{bmatrix}
+	\alpha& \beta^{*}
+	\gamma^{*}& \delta
+	\end{bmatrix}
+	\]
+			\end{minted}
+		\end{column}
+	\end{columns}	
+		
 \end{frame}
 
 
 \begin{frame}[fragile]{Math  mode}
 	\framesubtitle{Matrices}
-	A basic matrix may be created using the \texttt{matrix} environment.\\
-	
+
 	\alert{Parenthesized matrix}\\
 	
 	\begin{columns}
 		\begin{column}{0.5\textwidth}	
-			\begin{minted}{tex}
-	\[
-	  \begin{pmatrix}
-	  \alpha& \beta^{*}
-	  \gamma^{*}& \delta
-	  \end{pmatrix}
-	\]
-			\end{minted}
-		\end{column}
-		\begin{column}{0.5\textwidth}
 			\[
-			\begin{pmatrix}
-			\alpha& \beta^{*}\\
-			\gamma^{*}& \delta
-			\end{pmatrix}
-			\]
+		\begin{pmatrix}
+		\alpha& \beta^{*}\\
+		\gamma^{*}& \delta
+		\end{pmatrix}
+		\]
+		\end{column}
+	\hspace{5pt}\vrule\hspace{5pt}%
+		\begin{column}{0.5\textwidth}
+		
+	\begin{minted}{tex}
+\[
+\begin{pmatrix}
+\alpha& \beta^{*}\\
+\gamma^{*}& \delta
+\end{pmatrix}
+\]
+\end{minted}			
+			
 		\end{column}
 	\end{columns}
 \end{frame}
@@ -878,8 +928,10 @@ The \mintinline{tex}{\begin{align}..\end{align}} environment is used group toget
 \begin{frame}[fragile]{Math mode}
 	\framesubtitle{Matrix}
 	\alert{Example: let type the following matrix}
+	\begin{center}
 \begin{minted}{tex}
-	\[ A_{m,n} =
+\[
+A_{m,n} =
 \begin{pmatrix}
 a_{1,1} & a_{1,2} & \cdots & a_{1,n} \\
 a_{2,1} & a_{2,2} & \cdots & a_{2,n} \\
@@ -888,6 +940,8 @@ a_{m,1} & a_{m,2} & \cdots & a_{m,n}
 \end{pmatrix}
 \] 
 \end{minted}
+	\end{center}
+
 	
 \end{frame}
 
@@ -905,6 +959,7 @@ x & \text{if } x \neq 0 \\
 \end{cases}
 \]
 \end{column}
+	\hspace{5pt}\vrule\hspace{5pt}%
 \begin{column}{0.5\textwidth}
 \begin{minted}{tex}
 \[
@@ -919,54 +974,14 @@ x & \text{if } x \neq 0 \\
 \end{columns}	
 \end{frame}
 
+\begin{frame}[fragile]{Activity}
+	\begin{center}
+		{\Large \textbf{Activity 7}}
+	\end{center}
+	
+\end{frame}
 
-\begin{frame}[fragile]{Math  mode}
-	\framesubtitle{Typesetting Activity 4}
-	Open the tex file you created in Activity 2 and type the following under Model  subsection:
-	\begin{enumerate}
-		\item Consider a narrowband point-to-point communication system of $M_t$ transmit and $M_r$ receive antennas. The received signal vector $y$ can be represented by the following discrete time model.
-		\begin{equation*}
-		\begin{bmatrix}
-		y_1\\ \vdots \\y_{M_r} 
-		\end{bmatrix}
-		= \begin{bmatrix}
-		h_{11} &\ldots & h_{1M_t}\\
-		\vdots  & \ddots & \vdots\\
-		h_{M_r1} &\ldots& h_{M_rM_t}
-		\end{bmatrix}
-		\begin{bmatrix}
-		x_1\\ \vdots \\x_{M_t} 
-		\end{bmatrix}
-		+
-		\begin{bmatrix}
-		n_1\\ \vdots \\n_{M_r} 
-		\end{bmatrix}
-		\end{equation*}
-		\seti
-	\end{enumerate}
-\end{frame}
-\begin{frame}{Math  mode}
-	\framesubtitle{Typesetting Activity 3}
-	\begin{enumerate}
-		\conti
-			\item The set of linear equations: $a_ix_i = b_i  \qquad \forall i=1, \ldots, n$ can be written as a matrix equation:
-		\[
-		\texttt{diag}(\mathbf{A}).\mathbf{x} = \mathbf{b}
-		\]
-		where $\mathbf{x} = [x_1, \ldots, x_n]^T$, $\mathbf{b} = [b_1, \ldots, b_n]^T$
-		and
-		\[
-		\texttt{diag}(\mathbf{A})= 
-		\begin{bmatrix}
-		a_1 & 0 & \cdots & 0\\
-		0 & a_2 & \ddots & \vdots\\
-		\vdots & \ddots & \ddots & 0\\
-		0 & \cdots & 0 & a_n
-		\end{bmatrix}
-		\]
-		\item Run quick build. What do you see?
-	\end{enumerate}
-\end{frame}
+
 
 \begin{frame}
 	\centering

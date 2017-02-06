@@ -1,24 +1,5 @@
-\frametitle{Math mode}
-\framesubtitle{Typesetting Activity 4}
-	Open the tex file you created in Activity 2 and type the following under Model  subsection:
-	\begin{enumerate}
-		\item Consider a narrowband point-to-point communication system of $M_t$ transmit and $M_r$ receive antennas. The received signal vector $y$ can be represented by the following discrete time model.
-		\begin{equation*}
-		\begin{bmatrix}
-		y_1\\ \vdots \\y_{M_r}
-		\end{bmatrix}
-		= \begin{bmatrix}
-		h_{11} &\ldots & h_{1M_t}\\
-		\vdots  & \ddots & \vdots\\
-		h_{M_r1} &\ldots& h_{M_rM_t}
-		\end{bmatrix}
-		\begin{bmatrix}
-		x_1\\ \vdots \\x_{M_t}
-		\end{bmatrix}
-		+
-		\begin{bmatrix}
-		n_1\\ \vdots \\n_{M_r}
-		\end{bmatrix}
-		\end{equation*}
-		\seti
-	\end{enumerate}
+\frametitle{Activity}
+\begin{center}
+		{\Large \textbf{Activity 7}}
+	\end{center}
+

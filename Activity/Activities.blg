@@ -1,0 +1,13 @@
+This is BibTeX, Version 0.99dThe top-level auxiliary file: Activities.aux
+The style file: apa.bst
+I couldn't open database file bib/References_NILM.bib
+---line 24 of file Activities.aux
+ : \bibdata{bib/References_NILM
+ :                             }
+I'm skipping whatever remains of this command
+I found no database files---while reading file Activities.aux
+Warning--I didn't find a database entry for "Monacchi2013"
+Warning--I didn't find a database entry for "Batra2013b"
+Warning--I didn't find a database entry for "Huss2015"
+Warning--I didn't find a database entry for "Perez2008"
+(There were 2 error messages)

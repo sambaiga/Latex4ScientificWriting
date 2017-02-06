@@ -1,0 +1,238 @@
+% !TeX document-id = {97ff76cc-a53b-499b-868e-cac32905f45a}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% LaTeX Thesis Template defined by Anthony Faustine(sambaiga@gmail.com), 2016
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% !TeX TXS-program:compile = txs:///pdflatex/[--shell-escape]
+\RequirePackage[l2tabu, orthodox]{nag}  %checks for obsolete LaTeX packages and outdated commands
+
+
+\documentclass[a4paper,12pt]{article}
+ 
+\usepackage{setspace} %set line spacing
+\doublespacing
+% or:
+%\onehalfspacing
+\setlength{\parindent}{0pt} %set noindent for all paragraphs
+\setlength{\parskip}{2.0ex plus0.5ex minus0.2ex}
+
+
+% package imports
+\usepackage{amsmath,amsthm,amssymb,amsfonts} %for math environments
+
+\usepackage{a4wide}  % Pulls the page out a bit - makes it look better (in my opinion)
+\usepackage{parskip}  % Removes paragraph indentation (not needed most of the time now)
+\usepackage{fullpage}
+\usepackage{blindtext}
+\usepackage{algorithm}
+\usepackage[pdftex]{graphicx}
+\usepackage{float}
+\usepackage{subfig}
+\usepackage{siunitx}  % for writing scientific documents, where units and numbers are a big part of the writing.
+\usepackage{booktabs} % To create tables without vertical separators.
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{multirow} %for table with multi column
+\usepackage{color}
+\usepackage{algorithm}
+\usepackage{algorithmic} %for algorithm
+\usepackage[round]{natbib} %for citation 
+\usepackage[margin=10pt,font=small,labelfont=bf, labelsep=endash]{caption}% Vastly improves the standard formatting of captions
+\usepackage{todonotes}
+\usepackage[margin=1in]{geometry}
+\usepackage{bm}
+%\usepackage{apacite}
+%\usepackage{subfigure} % Provides commands to make subfigures (figures with (a), (b) and (c))
+\usepackage{pdflscape} %for land scapping pages
+\usepackage[final]{microtype} %improves the spacing between words and letters
+\usepackage{footnote}
+\usepackage[colorlinks]{hyperref}
+%\usepackage{pslatex}
+\usepackage{times}
+\usepackage{minted}
+%\usemintedstyle{monokai}
+   
+
+% settings
+%\bibliographystyle{plain}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+\pagenumbering{roman}
+
+
+
+\setlength{\textheight}{9.8in} \setlength{\topmargin}{0.0in}
+\setlength{\headheight}{0.0in} \setlength{\headsep}{0.0in}
+\setlength{\leftmargin}{0.0in}
+\setlength{\oddsidemargin}{0.0in}
+%\setlength{\parindent}{1pc}
+\setlength{\textwidth}{6.5in}
+%\linespread{1.6}
+
+% Useful custom commands
+\newcommand{\note}[1]{\color{blue}#1\color{black}}
+\newcommand{\missref}{\note{[REF]}}
+
+
+\newcommand{\etal}{\textit{et.~al.}}
+\newcommand{\phys}{\textit{Physarum Polycephalum}}
+
+% The document starts here
+
+
+
+  
+\begin{document}
+
+\newcounter{rom}
+ 
+
+ 
+\addtocounter{rom}{1}\setcounter{page}{2}~
+
+
+%\tableofcontents
+%\listoffigures
+%\listoftables
+%\newpage\thispagestyle{plain}~
+
+\pagenumbering{arabic}
+
+\begin{center}
+{\Large \textbf{ {\color{green} \textbf{Workshop On LaTeX for Scientific Writing} }  }}
+\end{center}
+
+\section*{{\color{green} Activity 1: LaTeX Hello word}}
+\begin{enumerate}
+	\item Create a new file in TexStudio say Activity.tex, that contains the following text and \LaTeX commands:
+	\begin{minted}{tex}
+	\documentclass{article}
+	\begin{document}
+	Hello world ! % This is your content
+	This is a simple example to start with \LaTeX.
+	\end{document}
+	The first task.
+	\end{minted}
+	
+	\item Run quick build.
+\end{enumerate}
+
+
+%%Activity 2
+\section*{{\color{green} Activity 2: Document class}}
+\begin{enumerate}
+	\item Change the document class of Activity.tex from article into beamer.\\
+	\mintinline{tex}{\documentclass{beamer}}
+	\item  Run quick build. What do you see?
+\end{enumerate}
+
+
+%%Activity3
+\section*{{\color{green} Activity 3: Document Tittle}}
+
+\begin{enumerate}
+	\item Change the document class of Activity.tex from beamer into article class with the a4paper and 12pt	options.\\
+	\mintinline{tex}{\documentclass[a4paper,12pt]{article}}
+	\item Create the title of your article and put two authors and date.
+	\item Add \mintinline{tex}{\maketitle} just after \mintinline{tex}{\begin {document}}
+	\item Run quick build. What do you see?.
+	\item Use geometry packages to set document margin.\\
+	\mintinline{tex}{\usepackage[top=1in,bottom=1in,left=1in,right=1in]{geometry}}
+	\item Try to change the margin to different numbers, run quick build. What do you see?
+	\item Try to change the margin to different unit such as centimetres (e.g \mintinline{tex}{top=2.5cm}), run quick build. What do you see?
+\end{enumerate}
+
+
+%%Activity4
+\section*{{\color{green} Activity 4: Sections}}
+\begin{enumerate}
+	\item Open the Activity.tex and create a section structure like shown below:\\
+		\textbf{1. Introduction}\\
+			Hello world ! % This is your content
+		This is a simple example to start with \LaTeX.\\
+		 \textbf{2. Methods}\\
+		 \textbf{2.1 Model} \\
+		 \textbf{2.1.1 Model Assumption} \\
+		 \textbf{3. Results} \\
+		 \textbf{4. Conclusion}
+  \item Run quick build. What do you see?
+  \item What happens if you use the *-version e.g \mintinline{tex}{\subsection*{Results}}.
+  \item Why is it not possible to use \chapter {} , in this document?.
+\end{enumerate}
+
+
+%%Activity Five
+\section*{{\color{green} Activity 5: Text Formatting}}
+\begin{enumerate}
+	\item Bold the tittle of your Activity.tex and the font size to \mintinline{tex}{\Large}.
+	\item Change the font style of author names to italic, use \mintinline{tex}{\textit{text}} 
+	\item Change the text color of date to green.First add \mintinline{tex}{\usepackage{xcolor}} and then use \mintinline{tex}{\textcolor{green}{text}}
+	\item Produce the following text in the Introduction section. \textbf{Hint}: in the itemize environment you can specify what character to use as bullet: \mintinline{tex}{\item[<optional character>]}
+	\\
+	{\LARGE H}ello, this is my first attempt at writing in \textrm{LaTeX}. {\color{blue}I'm hoping that once I've mastered LaTeX 100\%}, everyone will be so in awe
+	of my beautiful papers \& books that they'll publish them straight away without
+	all that \textit{boring nonsense with referees}. I haven't written very much yet but I think I'm starting to get the hang of it. And this is what I plan to do:
+	\begin{itemize}
+		\item Practise LaTeX in:
+		\begin{enumerate}
+			\item [*] Teaching
+			\item [*] Writing books
+			\item [*] etc
+		\end{enumerate}
+	\end{itemize}
+	
+\end{enumerate}
+
+%% Activity 6
+
+\section*{{\color{green} Activity 6: Cross-reference section}}
+Experiment with the section cross-reference in the Activity.tex 
+
+
+\section*{{\color{green} Activity 7: Math typesetting}}
+Open the Activity.ex file and type the following under Model assumption subsection:
+\begin{enumerate}
+	\item  In this work we demonstrate that $\alpha^2 + \beta^2 \gg \frac{\pi}{4}$ is only correct if the Euler condition $\nabla x =0$ is satisfied. \textbf{Hint}: To typeset $\gg$ use \mintinline{tex}{\gg} command.
+	
+	\item We propose a new numerical approach to solve the time-dependent Schr\"odinger equation as shown in \eqref{odinger};
+	\begin{equation}\label{odinger} i\hbar \frac{\partial
+		\Psi(t)}{\partial t} = H(t) \Psi(t)
+	\end{equation}
+	where $i$ is the imaginary unit, $\hbar$ is the reduced Planck constant, the symbol $\frac{\partial }{\partial t}$ indicates a partial derivative with respect to time $t$. \textbf{Hint}: To typeset symbols $\hbar$ and $\Psi$ use the following commands, \mintinline{tex}{\hbar} and \mintinline{tex}{\Psi} respectively. To typeset ancient symbol \"o use \mintinline{tex}{\"o} command.
+
+\item The relation between the golden ratio and the Fibonacci series is given by \eqref{fib-series}.
+\begin{equation}\label{fib-series}
+\phi = 1 + \sum^{\infty} _{n=1}
+\frac{ (-1)^{n+1} }{ F_n F_{n+1} }
+\end{equation}
+where the golden ratio $\phi =
+\frac{1}{2} (1 + \sqrt{5})$
+\item What happens if you use \mintinline{tex}{\ref{key}} instead of \mintinline{tex}{\eqref{key}} to reference an equation.
+\item What happens if you use the *-version of equation environment \mint{tex}{\begin{equation*}...\end{equation*}}
+\end{enumerate}
+
+\section*{{\color{green} Activity 8: Math typesetting}}
+Open the Activity.ex file and type the following under Model subsection:
+\begin{enumerate}
+	\item  Consider a narrowband point-to-point communication system of $M_t$ transmit and $M_r$ receive antennas. The received signal vector $y$ can be represented by the following discrete time model.
+	\begin{equation*}
+	\begin{bmatrix}
+	y_1\\ \vdots \\y_{M_r} 
+	\end{bmatrix}
+	= \begin{bmatrix}
+	h_{11} &\ldots & h_{1M_t}\\
+	\vdots  & \ddots & \vdots\\
+	h_{M_r1} &\ldots& h_{M_rM_t}
+	\end{bmatrix}
+	\begin{bmatrix}
+	x_1\\ \vdots \\x_{M_t} 
+	\end{bmatrix}
+	+
+	\begin{bmatrix}
+	n_1\\ \vdots \\n_{M_r} 
+	\end{bmatrix}
+	\end{equation*}
+	
+\end{enumerate}
+% finish the document
+\end{document}
