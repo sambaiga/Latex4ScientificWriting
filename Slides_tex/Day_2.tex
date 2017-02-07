@@ -5,6 +5,9 @@
 \usepackage[utf8]{inputenc}
 \usepackage{minted}
 \usemintedstyle{monokai}
+\usepackage{etoolbox}
+\AtBeginEnvironment{minted}{\singlespacing%
+	\fontsize{10}{10}\selectfont}
 \usepackage[
   main=english, %% By using `czech` or `slovak` as the main locale
                 %% instead of `english`, you can typeset the
@@ -17,9 +20,10 @@
 %%   \begin{otherlanguage}{slovak}  ... \end{otherlanguage}
 %%
 %% These macros specify information about the presentation
-\title{LaTex for Scientific Writing} %% that will be typeset on the
-\subtitle{Day One} %% title page.
-\author{Anthony Faustine}
+\title{ LaTex for Scientific Writing} %% that will be typeset on the
+\subtitle{Day 2} %% title page.
+\author{\href{sambaiga.github.io}{Anthony Faustine} \\sambaiga@gmail.com}
+
 
 %% These additional packages are used within the document:
 \usepackage{ragged2e}  % `\justifying` text
@@ -78,10 +82,11 @@ Use the tabular environment
 \end{frame}
 
 \begin{frame}[fragile]{Tables}{Creating Tables}
-The column data is separated by \mintinline{tex}{\\},row end is marked as \mintinline{tex}{\\} and \mintinline{tex}{\hline} draw a horizontal line.\\
+The column data is separated by \textcolor{blue}{\&},row end is marked as \mintinline{tex}{\\} and \mintinline{tex}{\hline} draw a horizontal line.\\
 Consider the following simple table:\\
-\centering
-\begin{tabular}[t]{|l|l|}
+
+
+\begin{tabular}[c]{|l|l|}
 	\hline 
 	\textbf{Parameter} & \textbf{Value}\\
 	\hline 
@@ -96,7 +101,7 @@ Consider the following simple table:\\
 \begin{frame}[fragile]{Tables}{Creating Tables}
 Latex code for previous simple table\\
 	\begin{minted}{tex}
-\centering
+
 \begin{tabular}[t]{|l|l|}
 \hline 
 \textbf{Parameter} & \textbf{Value}\\
@@ -123,6 +128,22 @@ The \alert{\texttt{booktabs }} package  improve the quality  LaTeX tables.
 \end{frame}
 
 \begin{frame}[fragile]{Tables}{Creating Tables}
+	\alert{Example:} 
+	
+	\centering
+	\begin{tabular}[t]{ll}
+		\toprule
+		\textbf{Parameter} & \textbf{Value}\\
+		\midrule
+		Path loss (n) & 2.5\\
+		Model & Okumura-model\\
+		Cell-radius & $1km$\\
+		\bottomrule
+	\end{tabular}
+	
+\end{frame}
+
+\begin{frame}[fragile]{Tables}{Creating Tables}
 	\alert{Example:} consider the following code:\
 	\begin{minted}{tex}
 \centering
@@ -138,21 +159,7 @@ Cell-radius & $1km$\\
 	\end{minted}
 \end{frame}
 
-\begin{frame}[fragile]{Tables}{Creating Tables}
-	\alert{Example:} The previous code will result into the following table
-	
-	\centering
-	\begin{tabular}[t]{ll}
-	\toprule
-	\textbf{Parameter} & \textbf{Value}\\
-	\midrule
-	Path loss (n) & 2.5\\
-	Model & Okumura-model\\
-	Cell-radius & $1km$\\
-	\bottomrule
-	\end{tabular}
-	
-\end{frame}
+
 
 \begin{frame}[fragile]{Tables}{Creating Tables}
 To draw multicolumn table like this one:\\
@@ -168,8 +175,6 @@ To draw multicolumn table like this one:\\
 	Richard 	  & Miles		  & $2$ \\
 	\bottomrule
 \end{tabular}
-\\
-Use the following command: \mintinline{tex}{\multicolumn{n}{alignment}{item}}
 \end{frame}
 
 \begin{frame}[fragile]{Tables}{Creating Tables}
@@ -239,6 +244,7 @@ Richard   & Miles  & $2$ \\
 	\bottomrule
 \end{tabular}
 \end{table}
+
 \end{frame}
 
 
@@ -258,7 +264,17 @@ Cell-radius & $1km$\\
 \end{tabular}
 \end{table}
 \end{minted}
+
+\alert{Guide to Making nice Table}: \href{https://www.inf.ethz.ch/personal/markusp/teaching/guides/guide-tables.pdf}{click here}
 \end{frame}
+
+\begin{frame}[fragile]{Activity}
+	\begin{center}
+		{\Large \textbf{Activity 7}}
+	\end{center}
+	
+\end{frame}
+
 
 \begin{frame}[fragile]{Graphics}{Include Graphics}
 The easiest way to include images in your document is to use

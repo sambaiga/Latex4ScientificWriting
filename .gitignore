@@ -6,7 +6,7 @@
 *.toc
 *.bbl
 *.synctex
-
+*.pdf
 
 _minted-Day_1/
 _minted-Day_2/

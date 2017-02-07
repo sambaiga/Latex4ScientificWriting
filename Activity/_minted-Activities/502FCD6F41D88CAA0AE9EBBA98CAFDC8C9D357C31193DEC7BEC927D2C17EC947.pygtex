@@ -1,8 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-	\PYG{k}{\PYGZbs{}documentclass}\PYG{n+nb}{\PYGZob{}}article\PYG{n+nb}{\PYGZcb{}}
-	\PYG{k}{\PYGZbs{}begin}\PYG{n+nb}{\PYGZob{}}document\PYG{n+nb}{\PYGZcb{}}
-	Hello world ! \PYG{c}{\PYGZpc{} This is your content}
-	This is a simple example to start with \PYG{k}{\PYGZbs{}LaTeX}.
-	\PYG{k}{\PYGZbs{}end}\PYG{n+nb}{\PYGZob{}}document\PYG{n+nb}{\PYGZcb{}}
-	The first task.
-\end{Verbatim}

@@ -7,8 +7,8 @@
 %% conditions are required by law.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % !TeX TXS-program:compile = txs:///pdflatex/[--shell-escape]
-\documentclass{beamer}
-%\documentclass[handout]{beamer}
+%\documentclass{beamer}
+\documentclass[handout]{beamer}
 %\usepackage{pgfpages}
 %\pgfpagesuselayout{2 on 1}[a4paper,border shrink=5mm]
 \usetheme[faculty=ped]{fibeamer}
@@ -86,16 +86,7 @@
   	\end{itemize}
   \end{frame} 
 
-   \begin{frame}[<+->]{What is Latex}
-   	
-   	\begin{block}{Latex is good for:}
-   		\begin{itemize}
-   			\item Writing documents, especially those with scientific notation.
-   			\item Making presentation slides.
-   			\item Designing posters.
-   		\end{itemize}
-   	\end{block}
-   \end{frame}
+ 
    
    \begin{frame}[<+->]{What is Latex}
    	
@@ -103,7 +94,7 @@
    		\begin{itemize}
    			\item You can’t learn how to use it by watching someone else use it.
    			\item Google knows everything about it.
-   			\item Aim of this training: $\Rightarrow$ To show you what LATEX can do.
+
    		\end{itemize}
    	\end{block}
    \end{frame}
@@ -122,7 +113,7 @@
    	\end{block}
    \end{frame}
    
-   \begin{frame}[<+->]{How does it work?}
+   \begin{frame}{How does it work?}
    	
    	
    	\begin{itemize}
@@ -131,7 +122,7 @@
    	\end{itemize}
    	\pause
    	\begin{figure}
-   		\includegraphics[scale=0.45]{images/latexhow}
+   		\includegraphics[scale=0.45]{images/latexhowthis}
    	\end{figure}
    \end{frame}
    
@@ -170,6 +161,7 @@
    		\item Overleaf [https://www.overleaf.com/].
    		\item Papeeria [https://papeeria.com/].
    		\item Sharelatex [https://www.sharelatex.com/].
+   		\item Authorea [https://www.authorea.com/].
    	\end{itemize}
    \end{frame}
 
@@ -230,7 +222,10 @@ content...           % document environment
 
 \begin{frame}{Special Character}
 	There are ten characters which, like the backslash, are used by latex for special purposes.\\
-	\includegraphics[scale=0.65]{images/special.pdf} 
+	\begin{figure}
+  	\includegraphics[scale=0.65]{images/special.pdf} 
+	\end{figure}
+
 \end{frame}
 
 \section{Document Structure}
@@ -506,7 +501,7 @@ To change text color use \mintinline{tex}{\usepackage{color}} or  \mintinline{te
 	LaTex treats any number of spaces as a single space.
 	\begin{itemize}
 		\item Single new lines are treated as if there is no new line.
-		\item Multiple blank lines are treated as a single new line.
+		\item Multiple blank lines are treated as a single new line or you may use \mintinline{tex}{\newline} command.
 		\item You can force horizontal and vertical space using the \mintinline{tex}{\hspace{length}} and \mintinline{tex}{\vspace{length}}
 		\begin{itemize}
 			\item You have to give each command a length commands:
