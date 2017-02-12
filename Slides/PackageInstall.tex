@@ -1,0 +1,86 @@
+
+\documentclass[a4paper,12pt]{report} 
+
+\usepackage{lipsum}  %Generate dummy text (lorem ipsum) in your document
+\usepackage{algorithm2e}  %	
+\usepackage{natbib} %for citation
+\usepackage{booktabs} % To create tables without vertical separators.
+\usepackage{graphicx} % for images and figures
+\usepackage[top=2in,bottom=1in,left=1in,right=1in]{geometry} % To create document margin
+\usepackage[final]{microtype} %improves the spacing between words and letters
+\usepackage[margin=10pt,font=small,labelfont=bf, labelsep=endash]{caption}% Vastly improves the standard formatting of captions
+\usepackage{cleveref}
+\usepackage{amsmath} %for math environments
+\usepackage{a4wide}  % Pulls the page out a bit - makes it look better (in my opinion)
+\usepackage{parskip}  % Removes paragraph indentation (not needed most of the time now)
+\usepackage{setspace} %set line spacing
+\doublespacing
+% or:
+%\onehalfspacing
+\usepackage{ragged2e}  % `\justifying` text
+\usepackage{booktabs}  % Tables     % Diagrams
+\usepackage{siunitx}
+\usepackage[colorlinks]{hyperref}
+\usepackage[colorinlistoftodos]{todonotes}
+
+%page numbering format
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+\pagenumbering{roman}
+\usepackage[utf8]{inputenc}
+\begin{document}
+	
+{\Huge LATEX for Scientific Writing}
+
+
+
+Ages of peoples is shown in \ref{tab:age}
+\begin{table}
+	\caption{The table of ages}
+	\label{tab:age}
+	\centering
+\begin{tabular}{|l|l|}
+	\hline
+	\textbf{Name} & \textbf{age} \\
+	\hline
+	Magembe  & 12 \\\hline
+	Juma   & 20 \\
+	\hline
+\end{tabular}
+\end{table}
+
+
+
+
+
+
+
+
+
+
+
+\begin{align}
+x + y = 1 \\
+x - y = 0
+\end{align}
+
+\begin{align*}
+y  =& x + 1 - 2\\
+ = &6-x + x^2\\
+  =&x^2 -1
+\end{align*}
+
+
+
+
+This is my equation  as in \ref{eq:1}
+\begin{equation}\label{eq:1}
+\int_{x=0}^{x=10} x^2 \, dx
+\end{equation}
+
+
+
+
+
+	
+\end{document}
