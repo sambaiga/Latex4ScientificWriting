@@ -1,0 +1,261 @@
+% !TeX document-id = {3c281677-b23a-4c44-b031-f2b1bb9a8252}
+% !TeX TXS-program:compile = txs:///pdflatex/[--shell-escape]
+
+\RequirePackage[l2tabu, orthodox]{nag}  %checks for obsolete LaTeX packages and outdated commands
+
+
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{setspace} %set line spacing
+\doublespacing
+% or:
+%\onehalfspacing
+\setlength{\parindent}{0pt} %set noindent for all paragraphs
+\setlength{\parskip}{2.0ex plus0.5ex minus0.2ex}
+
+
+% package imports
+\usepackage{amsmath,amsthm,amssymb,amsfonts} %for math environments
+
+\usepackage{a4wide}  % Pulls the page out a bit - makes it look better (in my opinion)
+\usepackage{parskip}  % Removes paragraph indentation (not needed most of the time now)
+\usepackage{fullpage}
+\usepackage{blindtext}
+\usepackage{algorithm}
+\usepackage[pdftex]{graphicx}
+\usepackage{float}
+\usepackage{subfig}
+\usepackage{siunitx}  % for writing scientific documents, where units and numbers are a big part of the writing.
+\usepackage{booktabs} % To create tables without vertical separators.
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{multirow} %for table with multi column
+\usepackage{color}
+\usepackage{algorithm}
+\usepackage{algorithmic} %for algorithm
+\usepackage[round]{natbib} %for citation 
+\usepackage[margin=10pt,font=small,labelfont=bf, labelsep=endash]{caption}% Vastly improves the standard formatting of captions
+\usepackage{todonotes}
+\usepackage[margin=1in]{geometry}
+\usepackage{bm}
+%\usepackage{apacite}
+%\usepackage{subfigure} % Provides commands to make subfigures (figures with (a), (b) and (c))
+\usepackage{pdflscape} %for land scapping pages
+\usepackage[final]{microtype} %improves the spacing between words and letters
+\usepackage{footnote}
+\usepackage[colorlinks]{hyperref}
+%\usepackage{pslatex}
+\usepackage{times}
+\usepackage{minted}
+%\usemintedstyle{monokai}
+\usepackage{cleveref}   
+
+% settings
+%\bibliographystyle{plain}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+\pagenumbering{roman}
+
+
+
+\setlength{\textheight}{9.8in} \setlength{\topmargin}{0.0in}
+\setlength{\headheight}{0.0in} \setlength{\headsep}{0.0in}
+\setlength{\leftmargin}{0.0in}
+\setlength{\oddsidemargin}{0.0in}
+%\setlength{\parindent}{1pc}
+\setlength{\textwidth}{6.5in}
+%\linespread{1.6}
+
+% Useful custom commands
+\newcommand{\note}[1]{\color{blue}#1\color{black}}
+\newcommand{\missref}{\note{[REF]}}
+
+
+\newcommand{\etal}{\textit{et.~al.}}
+\newcommand{\phys}{\textit{Physarum Polycephalum}}
+
+% The document starts here
+\title{{\Large \textbf{ {\color{green} \textbf{Workshop On LaTeX for Scientific Writing} } \\ Day 2: Activities}}}
+\author{\href{sambaiga.github.io}{Anthony Faustine} \\sambaiga@gmail.com}
+\date{$10^{th}$ Feb $2017$}
+
+
+  
+\begin{document}
+	\maketitle
+	\newcounter{rom}
+	
+	
+	
+	\addtocounter{rom}{1}\setcounter{page}{2}~
+	
+	
+	%\tableofcontents
+	%\listoffigures
+	%\listoftables
+	%\newpage\thispagestyle{plain}~
+	
+	\pagenumbering{arabic}
+
+
+
+
+\section*{{\color{green} Activity 1: Tables}}
+Open the Activity.ex file and type the following under Result subsection:
+\begin{enumerate}
+\item Create a table similar to \cref{tab:week1}
+	\begin{table}
+		\centering
+		\caption{First Week}
+		\begin{tabular}{|l | l | l|}
+			\hline
+			Day & Max Temp & Min Temp \\
+			\hline 
+			Mon & 20 & 13\\
+			Tue & 22 & 14\\
+			Wed & 23 & 12\\
+			Thurs & 25 & 13\\
+			Fri & 18 & 7\\
+			Sat & 15 & 13\\
+			Sun & 20 & 13 \\ \hline
+		\end{tabular}
+		\label{tab:week1}
+	\end{table}
+	
+	\item Add the booktabs package to your preamble and create a table similar to \cref{tab:template}.
+	
+	\begin{table} 
+		\centering % 
+		\caption{Table caption text} % 
+		\begin{tabular}{l c c c c c} 
+			\toprule 
+			& \multicolumn{3}{c}{Growth Media} \\ % Amalgamating several columns into one cell is done using the \multicolumn command as seen on this line
+			\cmidrule(l){2-3} 
+			Strain & 1 & 2  \\ % Column names row
+			\midrule % In-table horizontal line
+			GDS1002 & 0.962 & 0.821 \\ % Content row 1
+			NWN652 & 0.981 & 0.891\\ % Content row 2
+			PPD234 & 0.915 & 0.936\\ % Content row 3
+			\midrule % In-table horizontal line
+			\midrule % In-table horizontal line
+			Average Rate & 0.920 & 0.882 \\ % Summary/total row
+			\bottomrule % Bottom horizontal line
+		\end{tabular}
+		\label{tab:template} 
+	\end{table}
+	\item Experiment with the table cross-reference in using \mintinline{tex}{\ref{key} and \cref{key}} commands.
+	\item Try writing \mintinline{tex}{\listoftables} in the top of your document just after \mintinline{tex}{\tableofcontents}. What happens when you typeset?
+	
+\end{enumerate}
+
+\section*{{\color{green} Activity 2: Figure}}
+Open the Activity.ex file and type the following under Result subsection:
+\begin{enumerate}
+	\item Insert the graphicx package in your preamble
+	\item Place a figure in the same directory as your LATEX document.
+	\item Now insert the image in your document as shown in \cref{fig:simple}
+	\begin{figure}
+		\centering
+		\includegraphics[scale=0.2]{bulb}
+		\caption{Here is a simple figure}
+		\label{fig:simple}
+	\end{figure}
+	\item  Experiment with the figure cross-reference using \mintinline{tex}{\ref{key} and \cref{key}} commands.
+	\item Try writing \mintinline{tex}{\listoftables} in the top of your document just after \mintinline{tex}{\listoffigures}. What happens when you typeset?
+\end{enumerate}
+
+
+\section*{{\color{green} Activity 3: To do notes}}
+Open the Activity.ex file and type the following:
+\begin{enumerate}
+	\item Insert \mintinline{tex}{\usepackage[colorlinks]{hyperref}} in your preamble.
+	\item Also load \mintinline{tex}{\usepackage[colorinlistoftodos]{todonotes}}  just after \mintinline{tex}{\usepackage[colorlinks]{hyperref}}.
+	\item Experiments with \mintinline{tex}{\todo{text}} commands.
+	\item Try writing \mintinline{tex}{\listoftodos} in the top of your document just after \mintinline{tex}{\listoffigures}. What happens when you typeset?
+\end{enumerate}
+
+\section*{{\color{green} Activity 4: Export from Mendeley to BibTeX}}
+\begin{enumerate}
+	\item Select five references from your Mendeley library and export to Bibtex. Save  to the same location as the Activity.tex file.
+	\item Try to open it with notepad and examine the bibtex file.
+	\item Set up the Mendeley auto sync and save it in bib folder in the savme location as the Activity.tex file.
+\end{enumerate}
+
+
+\section*{{\color{green} Activity 5: Bibliography }}
+\begin{enumerate}
+	\item Insert \mintinline{tex}{\usepackage{natbib}} in your preamble.
+	\item Define bibliography style just after  with \mintinline{tex}{\usepackage{natbib}} with \mintinline{tex}{\bibliographystyle{plainnat}} command.
+	\item Include .bib file created in activity 10 at the end of document just before \mintinline{tex}{\end{document}} with \mintinline{tex}{\bibliography{bibfile(without an extension)}}. 
+\item Add a \mintinline{tex}{\citet{key}} and \mintinline{tex}{\citep{key}}  commands some place in your document. What happens ? \textbf{Hints}. To compile bibtex press \mintinline{tex}{F8} followed by \mintinline{tex}{Build & View} button.
+\item  What happens if you use the  \mintinline{tex}{\cite{key}} commands?
+\item  What happens if you change bibliography style to \mintinline{tex}{\bibliographystyle{abbrvnat}}, \mintinline{tex}{\bibliographystyle{agsm}}, \mintinline{tex}{\bibliographystyle{apa}} and \mintinline{tex}{\bibliographystyle{plain}}.
+\end{enumerate}
+
+\section*{{\color{green} Activity 6: Journal Paper }}
+Use the JIVE latex template provided to write your paper.
+
+\section*{{\color{green} Activity 7: Thesis }}
+Use the Thesis latex template provided to write your proposal.
+
+\section*{{\color{green} Activity 8: Presentation }}
+Create a new tex file name it Beamer.tex
+\begin{enumerate}
+\item Define beamer class with \mintinline{tex}{\documentclass{beamer}}
+\item Define title of your presentation with the following command.
+\begin{minted}{tex}
+\title[TN 310]{TN 310: Wireless Networking}
+\subtitle{Lecture 1: Wireless MAC Protocol}
+\author{W.Chanihemo}
+\institute{The University of Dodoma (CIVE)}
+\date{\today}
+\end{minted}
+
+\item To print the tittle define the tittle page frame.
+\begin{minted}{tex}
+\begin{document}
+\begin{frame}
+\titlepage
+\end{frame}
+\end{document}
+\end{minted}
+\item Run quick build. What do you see?
+\begin{itemize}
+	\item There are a lot of different beamer themes for your presentation, to use them, use the command \mintinline{tex}{\usetheme{...}} (in the preamble). Available themes includes; \textit{AnnArbor
+		Berkeley,
+		Berlin,
+		Boadilla,
+		boxes,
+		CambridgeUS,
+		Frankfurt,
+		JuanLesPins,
+		Montpellier,
+		PaloAlto and
+		Warsaw}
+	\item Add the Berlin theme to your beamer by inserting \mintinline{tex}{\usetheme{Berlin}} in your preamble just after \mintinline{tex}{\documentclass{beamer}}. Run quick build. What do you see?
+	\item Experiment with other themes.
+	\item If you like the theme structure but not the choice of colours, use the \mintinline{tex}{\usecolortheme{...}} command (again in the preamble). List of colours,
+	\textit{
+		albatross, crane, beetle, dove,
+		fly, seagull, wolverine and  beaver
+	}
+	\item Change the color theme of your beamer by inserting \mintinline{tex}{\usecolortheme{fly}}. Run quick build. What do you see?
+	\item Experiments with different colours style.  
+	\item You can also specify colors of inner elements most
+	notably the colors of blocks in the same way regular color themes are chosen: \mintinline{tex}{\usecolortheme{...}}. You can choose from: \textit{lily, orchid and rose}.
+	\item In the same way you can also specify outer color themes. Outer color themes change the palette colors, which are the colors the headline, footline, and sidebar are based on. You can choose from: \textit{whale, seahorse and dolphin}.
+	\item You can also use  a pre-made beamer template. Several pre-made templates can be obtained from \href{https://www.overleaf.com/}{overleaf}.
+\end{itemize}
+\item Add a table of content frame just after a tittle frame.
+\item Create three sections just after table of contents frame say \mintinline{tex}{\section{Introduction}}, \mintinline{tex}{\section{Motivation}} and \mintinline{tex}{\section{Results}}.
+\item Add one frame with some contents under each section. \textbf{Hints}. You may use \mintinline{tex}{\begin{enumerate} \item .. \end{enumerate}} environment to create list of item.
+\item Compile and run. What  do you see?
+\end{enumerate}
+
+\section*{{\color{green} Activity 8: Presentation }}
+Experiment with frame structure (cloumns and blocks) and overlay in your presentation.
+
+\section*{{\color{green} Activity 9: Presentation }}
+Use the skills gained in class to prepare the following presentation.
+% finish the document
+
+\end{document}

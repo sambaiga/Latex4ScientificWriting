@@ -7,6 +7,9 @@
 *.bbl
 *.synctex
 *.pdf
+*.out
+*.vrb
+*.blg
 
 _minted-Day_1/
 _minted-Day_2/
