@@ -1,4 +1,4 @@
-# Two Days Workshop On LaTeX for Scientific Writing
+#  Workshop On LaTeX for Scientific Writing
 
 ### Workshop Description
 
@@ -27,10 +27,3 @@ The target audiences for this workshop are Faculty members and Students (Master 
 ###   Trainer Profile
 
 The training will be conducted by [Anthony Faustine](sambaiga.github.io), a PhD student at NM-AIST(Electronics and Telecom).
-
-
-
-### Registration: ###
-
-No registration fee will be charged, Limited seats are available for course
-registration. Register online through this [Link](https://docs.google.com/forms/d/e/1FAIpQLSf-bMtMHUYaGYeGTt9rQCKr9CjWc1196uWpXYINwW6m7tL4Mw/viewform)
