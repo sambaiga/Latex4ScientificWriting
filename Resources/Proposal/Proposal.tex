@@ -1,0 +1,138 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% LaTeX Thesis Template defined by Anthony Faustine(sambaiga@gmail.com), 2016
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\RequirePackage[l2tabu, orthodox]{nag}  %checks for obsolete LaTeX packages and outdated commands
+
+
+\documentclass[a4paper,12pt]{article}
+ 
+\usepackage{setspace} %set line spacing
+\doublespacing
+% or:
+%\onehalfspacing
+\setlength{\parindent}{0pt} %set noindent for all paragraphs
+\setlength{\parskip}{2.0ex plus0.5ex minus0.2ex}
+
+
+% package imports
+\usepackage{amsmath,amsthm,amssymb,amsfonts} %for math environments
+
+\usepackage{a4wide}  % Pulls the page out a bit - makes it look better (in my opinion)
+\usepackage{parskip}  % Removes paragraph indentation (not needed most of the time now)
+\usepackage{fullpage}
+\usepackage{blindtext}
+\usepackage{algorithm}
+\usepackage[pdftex]{graphicx}
+\usepackage{float}
+\usepackage{subfig}
+\usepackage{siunitx}  % for writing scientific documents, where units and numbers are a big part of the writing.
+\usepackage{booktabs} % To create tables without vertical separators.
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{multirow} %for table with multi column
+\usepackage{color}
+\usepackage{algorithm}
+\usepackage{algorithmic} %for algorithm
+\usepackage[round]{natbib} %for citation 
+\usepackage[margin=10pt,font=small,labelfont=bf, labelsep=endash]{caption}% Vastly improves the standard formatting of captions
+\usepackage{todonotes}
+\usepackage[margin=1in]{geometry}
+\usepackage{bm}
+%\usepackage{apacite}
+%\usepackage{subfigure} % Provides commands to make subfigures (figures with (a), (b) and (c))
+\usepackage{pdflscape} %for land scapping pages
+\usepackage[final]{microtype} %improves the spacing between words and letters
+\usepackage{footnote}
+\usepackage[hidelinks]{hyperref}
+%\usepackage{pslatex}
+\usepackage{times}
+\usepackage{lipsum}  %Generate dummy text (lorem ipsum) in your document
+
+
+% settings
+%\bibliographystyle{plain}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+\pagenumbering{roman}
+
+
+
+\setlength{\textheight}{9.8in} \setlength{\topmargin}{0.0in}
+\setlength{\headheight}{0.0in} \setlength{\headsep}{0.0in}
+\setlength{\leftmargin}{0.0in}
+\setlength{\oddsidemargin}{0.0in}
+%\setlength{\parindent}{1pc}
+\setlength{\textwidth}{6.5in}
+%\linespread{1.6}
+
+% Useful custom commands
+\newcommand{\note}[1]{\color{blue}#1\color{black}}
+\newcommand{\missref}{\note{[REF]}}
+
+
+\newcommand{\etal}{\textit{et.~al.}}
+\newcommand{\phys}{\textit{Physarum Polycephalum}}
+
+% The document starts here
+
+
+
+  
+\begin{document}
+
+\newcounter{rom}
+ 
+\input{tex/title}
+ \cleardoublepage
+ \begin{center}
+ 	%	\thispagestyle{empty}
+ 	\vspace*{.15\textheight}
+ 	
+ 	
+
+ 	
+ 	Approved by: 
+ 	\bigbreak
+ 	
+ 	\noindent\begin{tabular}{ll}
+ 		\makebox[2.5in]{\hrulefill} & \makebox[2.5in]{\hrulefill}\\
+ 		Dr.Kisangiri Michael & Date\\[8ex]% adds space between the two sets of signatures
+ 		\makebox[2.5in]{\hrulefill} & \makebox[2.5in]{\hrulefill}\\
+ 	Dr. Shubi Kaijage & Date\\
+ 	\end{tabular}
+ 	
+ 	
+ 
+ \end{center}
+ 
+\addtocounter{rom}{1}\setcounter{page}{2}~
+\newpage\thispagestyle{plain}\setcounter{page}{3}
+ 
+\tableofcontents
+\listoffigures
+\listoftables
+%\newpage\thispagestyle{plain}~
+\clearpage
+\pagenumbering{arabic}
+
+\input{tex/introduction}
+\input{tex/literature}
+\input{tex/methodology}
+\input{tex/schedule}
+\input{tex/budget}
+% lists at the end
+
+\newpage
+
+
+
+%\bibliographystyle{apacite} 
+\bibliographystyle{apa}
+\newpage
+\bibliography{bib/References_NILM} \newpage\cleardoublepage
+
+
+% finish the document
+\end{document}

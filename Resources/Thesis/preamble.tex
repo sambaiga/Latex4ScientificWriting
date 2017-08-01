@@ -1,0 +1,37 @@
+\usepackage{lipsum}  %Generate dummy text (lorem ipsum) in your document
+\usepackage{algorithm2e}  %	
+\usepackage[round]{natbib} %for citation
+\usepackage{booktabs} % To create tables without vertical separators.
+\usepackage{graphicx} % for images and figures
+\usepackage[top=1in,bottom=1in,left=1in,right=1in]{geometry}
+\usepackage[final]{microtype} %improves the spacing between words and letters
+\usepackage[margin=10pt,font=small,labelfont=bf, labelsep=endash]{caption}% Vastly improves the standard formatting of captions
+\usepackage{amsmath,amsthm,amssymb,amsfonts} %for math environments
+\usepackage{titlesec, blindtext, color}
+\usepackage{a4wide}  % Pulls the page out a bit - makes it look better (in my opinion)
+\usepackage{parskip}  % Removes paragraph indentation (not needed most of the time now)
+\usepackage{setspace}
+
+
+\usepackage{makeidx} % Required to make an index
+\makeindex % Tells LaTeX to create the files required for indexing
+
+\usepackage{setspace} %set line spacing
+\doublespacing
+% or:
+%\onehalfspacing
+
+\usepackage{titlesec}
+\titlespacing*{\chapter}{0pt}{-50pt}{20pt}
+\titleformat{\chapter}[display]{\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
+
+\usepackage[hidelinks]{hyperref}
+\usepackage{todonotes}
+
+
+% Chapter style (taken and slightly modified from Lars Madsen Memoir Chapter 
+
+
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+\pagenumbering{roman}

@@ -80,7 +80,7 @@
 % The document starts here
 \title{{\Large \textbf{ {\color{green} \textbf{Workshop On LaTeX for Scientific Writing} } \\ Day 1: Activities}}}
 \author{\href{sambaiga.github.io}{Anthony Faustine} \\sambaiga@gmail.com}
-\date{$09^{th}$ Feb $2017$}
+\date{14 August 2017}
 
 
   
@@ -134,6 +134,11 @@
 	\item Change the document class of Activity.tex from beamer into article class with the a4paper and 12pt	options.\\
 	\mintinline{tex}{\documentclass[a4paper,12pt]{article}}
 	\item Create the title of your article and put two authors and date.
+	\begin{minted}{tex}
+	\title{Scintific Writing using LaTeX}
+	\author{N.~Mduma \and S.~Mtey}
+	\date{\today}
+	\end{minted}
 	\item Add \mintinline{tex}{\maketitle} just after \mintinline{tex}{\begin {document}}
 	\item Run quick build. What do you see?.
 	\item Use geometry packages to set document margin.\\
@@ -150,14 +155,14 @@
 		\textbf{1. Introduction}\\
 			Hello world ! % This is your content
 		This is a simple example to start with \LaTeX.\\
-		 \textbf{2. Methods}\\
+		 \textbf{2 Methods}\\
 		 \textbf{2.1 Model} \\
 		 \textbf{2.1.1 Model Assumption} \\
-		 \textbf{3. Results} \\
-		 \textbf{4. Conclusion}
+		 \textbf{3 Results} \\
+		 \textbf{4 Conclusion}
   \item Run quick build. What do you see?
   \item What happens if you use the *-version e.g \mintinline{tex}{\subsection*{Results}}.
-  \item Why is it not possible to use \chapter {} , in this document?.
+  \item Why is it not possible to use \mintinline{tex}{ \chapter {} }, in this document?.
 \end{enumerate}
 
 

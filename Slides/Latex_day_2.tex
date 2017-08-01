@@ -1,0 +1,934 @@
+% !TeX document-id = {2421f23d-51b9-43a2-9dc6-52c6746474b3}
+% !TeX TXS-program:compile = txs:///pdflatex/[--shell-escape]
+\documentclass{bredelebeamer}    
+% suppress navigation bar
+\beamertemplatenavigationsymbolsempty
+
+\mode<presentation>
+{
+  %\usetheme{bunsen}
+  \setbeamercovered{transparent}
+  \setbeamertemplate{items}[circle]
+}
+
+\beamertemplatenavigationsymbolsempty
+\usepackage{color}
+\definecolor{uipoppy}{RGB}{225, 64, 5}
+\definecolor{uipaleblue}{RGB}{96,123,139}
+\definecolor{uiblack}{RGB}{0, 0, 0}
+
+% caption styling
+\DeclareCaptionFont{uiblack}{\color{uiblack}}
+\DeclareCaptionFont{uipoppy}{\color{uipoppy}}
+\captionsetup{labelfont={uipoppy},textfont=uiblack}
+\include{macros}
+\usepackage{minted}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title[Latex]{\textbf{LaTex for Scientific Writing: Day -1}}
+% Titre du diaporama
+
+%\subtitle{\textbf{PhD Student (NMAIST-CoCSE)} }
+% Sous-titre optionnel
+
+\institute[NMAIST]
+{
+	
+	
+	{\href{https://sambaiga.github.io/}{Anthony FAUSTINE}}. 
+	\\[1.0cm]
+	{\large
+    The School of Computational and Communication Sciences and Engineering \\[1.0cm]
+    NMAIST
+
+	}
+}
+
+
+
+
+
+
+
+\date{\texttt{21 July 2017}}
+% Optionnel. La date, généralement celle du jour de la conférence
+
+\subject{Sujet de votre diaporama}
+% C'est utilisé dans les métadonnes du PDF
+
+
+
+\logo{
+	\includegraphics[scale=0.1]{images/logo}
+}
+\hypersetup{
+	pdfauthor = {Anthony Faustine: sambaiga@gmail.com},
+	pdfsubject = {},
+	pdfkeywords = {},
+	pdfmoddate= {},
+	pdfcreator = {}
+}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\begin{frame}
+	\titlepage
+\end{frame}
+
+
+
+
+\AtBeginSection[] { \begin{frame} %
+		<beamer> \frametitle{Outline} \setcounter{tocdepth}{2} \tableofcontents[currentsection, sectionstyle=show/shaded,hideallsubsections ] \end{frame} }
+
+
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+\begin{frame}{Presenter Bio}
+\begin{itemize}
+\item \textsf{PhD student at Nelson Mandela African Institution of Science and Technology,} 
+\item \textbf{Research:}  \textsf{Applied machine learning and signal processing for computational sustainability}.
+\begin{itemize}
+	\item \textsf{Hybrid HMM-DNN for energy dis-aggregation problem}.
+\end{itemize}	
+\item \textsf{co-founder \href{https://pythontz.github.io/}{pythontz} [\texttt{https://pythontz.github.io}]}
+\item \textsf{ass.Lecturer: \href{www.udom.ac.tz}{the University of Dodoma}}
+\item \textsf{blog}: [\texttt{https://sambaiga.github.io}]
+\end{itemize}
+\end{frame}
+
+%--------------------------------------------------------
+\section{Graphics, Figures and Tables}
+
+\begin{frame}[fragile]{Tables}{Creating Tables}
+Use the tabular environment
+\begin{minted}{tex}
+\begin{tabular}[position]{column alignments}
+...
+\end{tabular}
+\end{minted}
+
+\begin{description}
+	\item[postion] is optional (vertical position): [t] (top), [c]
+	(center, this is default), [b] (bottom);
+	\item [column alignments]: l (left-justified), c (center justified),
+	and r (right-justified);
+\end{description}
+\end{frame}
+
+\begin{frame}[fragile]{Tables}{Creating Tables}
+The column data is separated by \textcolor{blue}{\&},row end is marked as \mintinline{tex}{\\} and \mintinline{tex}{\hline} draw a horizontal line.\\[0.5cm]
+Consider the following simple table:\\
+
+\centering
+\begin{tabular}[c]{|l|l|}
+\hline 
+\textbf{Parameter} & \textbf{Value}\\
+\hline 
+Path loss (n) & 2.5\\
+Model & Okumura-model\\
+Cell-radius & $1km$\\
+\hline
+\end{tabular}
+
+\end{frame}
+
+\begin{frame}[fragile]{Tables}{Creating Tables}
+Latex code for previous simple table\\
+\begin{minted}{tex}
+\centering
+\begin{tabular}[t]{|l|l|}
+\hline 
+\textbf{Parameter} & \textbf{Value}\\
+\hline 
+Path loss (n) & 2.5\\
+Model & Okumura-model\\
+Cell-radius & $1km$\\
+\hline
+\end{tabular}
+\end{minted}
+
+\end{frame}
+
+
+
+\begin{frame}[fragile]{Tables}{Creating Tables}
+The \alert{\texttt{booktabs }} package  improve the quality  LaTeX tables.
+\begin{itemize}
+	\item The horizontal rules are called with \mintinline{tex}{\toprule}, \mintinline{tex}{\midrule} and \mintinline{tex}{\bottomrule} instead of \mintinline{tex}{\hline} command.
+	\item The \mintinline{tex}{\cmidrule} is used for mid-rules that span specified columns.
+	\item The content of the tables is filled in the same manner as before.
+	\item To use this package first you need to add this code in preamble. \mintinline{tex}{\usepackage{booktabs}}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Tables}{Creating Tables}
+\alert{Example:} 
+
+\centering
+\begin{tabular}[t]{ll}
+\toprule
+\textbf{Parameter} & \textbf{Value}\\
+\midrule
+Path loss (n) & 2.5\\
+Model & Okumura-model\\
+Cell-radius & $1km$\\
+\bottomrule
+\end{tabular}
+
+\end{frame}
+
+\begin{frame}[fragile]{Tables}{Creating Tables}
+ code:\
+\begin{minted}{tex}
+\centering
+\begin{tabular}[t]{ll}
+\toprule
+\textbf{Parameter} & \textbf{Value}\\
+\midrule
+Path loss (n) & 2.5\\
+Model & Okumura-model\\
+Cell-radius & $1km$\\
+\bottomrule
+\end{tabular}
+\end{minted}
+\end{frame}
+
+
+
+\begin{frame}[fragile]{Tables}{Creating Tables}
+To draw multicolumn table like this one:\\[0.5cm]
+\begin{center}
+\begin{tabular}{llr}
+\toprule
+\multicolumn{2}{c}{Name} \\
+\cmidrule(lr){1-2}
+First name	& Last Name	& Grade \\
+\midrule
+John 		    & Doe	  		& $7.5$ \\
+Richard 	  & Miles		  & $2$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Tables}{Creating Tables}
+Use the following command: \mintinline{tex}{\multicolumn{n}{alignment}{item}}
+\begin{description}
+\item [n]: is the number of columns to be spanned.
+\item [alignemnt]: is one of the \mintinline{tex}{l, r and c}.
+\item [item]: is the content.
+\end{description}
+\alert{Example:}
+\begin{minted}[numbersep=5pt]{tex}
+
+\multicolumn{2}{c}{Name} 
+
+\end{minted}
+
+\end{frame}
+
+\begin{frame}[fragile]{Tables}{Creating Tables}
+
+\begin{minted}{tex}
+\begin{tabular}{llr}
+\toprule
+\multicolumn{2}{c}{Name} \\
+\cmidrule(r){1-2}
+First name & Last Name	& Grade \\
+\midrule
+John  & Doe	& $7.5$ \\
+Richard   & Miles  & $2$ \\
+\bottomrule
+\end{tabular}
+\end{minted}
+
+\end{frame}
+
+\begin{frame}[fragile]{Tables}{Floating Tables}
+Latex	provides the \texttt{table}  environments for typesetting floating tables.
+\begin{itemize}
+\item A table environment is set up as follows:
+\begin{minted}{tex}
+\begin{table}
+\caption{title}
+\label{tab:xxx}
+%Place the table here
+\end{table}
+\end{minted}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Tables}{Floating Tables}
+\begin{description}
+\item [\mintinline{tex}{\caption}] command is optional and used to set table tittle.
+\item [\mintinline{tex}{\label}] command is also optional and is used to reference
+the table’s number.
+\end{description}
+\alert{Example:} To produce the following table
+\begin{table}
+\caption{Simulation Parameters}
+\label{tab:model_parameter}
+\begin{tabular}[t]{ll}
+\toprule
+\textbf{Parameter} & \textbf{Value}\\
+\midrule
+Path loss (n) & 2.5\\
+Model & Okumura-model\\
+Cell-radius & $1km$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Tables}{Floating Tables}
+\footnotesize
+\begin{minted}{tex}
+\begin{table}
+\caption{Simulation Parameters}
+\label{tab:model_parameter}
+\begin{tabular}[t]{ll}
+\toprule
+\textbf{Parameter} & \textbf{Value}\\
+\midrule
+Path loss (n) & 2.5\\
+Model & Okumura-model\\
+Cell-radius & $1km$\\
+\bottomrule
+\end{tabular}
+\end{table}
+\end{minted}
+
+\alert{Guide to Making nice Table}: \href{https://www.inf.ethz.ch/personal/markusp/teaching/guides/guide-tables.pdf}{click here}
+\end{frame}
+
+\begin{frame}[fragile]{Activity}
+\begin{center}
+	{\Large \textbf{Activity 1}}
+\end{center}
+
+\end{frame}
+
+\begin{frame}[fragile]{Graphics}{Include Graphics}
+The easiest way to include images in your document is to use
+the \texttt{graphicx} package.\\
+Load the package graphicx:\mintinline{tex}{ \usepackage{graphicx}}
+\begin{itemize}
+	\item The image format available depend on what you’re using to compile.
+	\item If you’re compiling using pdflatex (recommended), then you
+	can use jpg, png, pdf, or eps files.
+	\item Place the file in the same directory as your tex file, and use the
+	\mintinline{tex}{\includegraphics[key-values]{imagefile}} command.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Graphics}{Include Graphics}
+\alert{Example:} 
+\mintinline{tex}{\includegraphics[scale=0.2]{images/bulb}}
+\begin{center}
+\includegraphics[scale=0.2]{images/bulb}
+\end{center}
+
+\end{frame}
+
+\begin{frame}[fragile]{Graphics}{Include Graphics}
+The image can be scaled to a specified height and/or width as follows:
+\mintinline{tex}{\includegraphics[height=2in,width=1in]{images/bulb}}
+\begin{center}
+\includegraphics[height=1.5in,width=1in]{images/bulb}
+\end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Graphics}{Floating images}
+Use \texttt{figure} environment:
+\begin{center}
+\begin{minted}{tex}
+\begin{figure}
+\includegraphics{file}
+\caption{title }
+\label{fig:xxx}
+\end{figure}
+\end{minted}
+\end{center}
+\end{frame}
+
+
+
+\begin{frame}[fragile]{Graphics}{Floating images}
+\begin{figure}
+\includegraphics[scale=0.15]{images/bulb}
+\caption{Green Bulb} 
+\label{fig:bulb}
+\end{figure}
+To print the list of figures and tables use \mintinline{tex}{ \listoffigures} and \mintinline{tex}{\listoftables}  respectively.\\		
+
+\end{frame}
+
+\begin{frame}[fragile]{Activity}
+\begin{center}
+{\Large \textbf{Activity 2}}
+\end{center}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Notes with todonotes}
+The \mintinline{tex}{\todo} command from the \texttt{todonotes} package is great for leaving notes to yourself and your collaborators.\\
+
+Include this package in preamble: \mintinline{tex}{\usepackage[colorinlistoftodos]{todonotes}}\\[0.5cm]
+
+\alert{Example:}\\
+\mintinline{tex}{\todo{Plain todonotes.}}  \\[0.50cm]
+\emph{Footnotes}:The command you need is \mintinline{tex}{\footnotes{An example footnote}} \footnote{An example footnote}
+
+\end{frame}
+
+\begin{frame}[fragile]{Notes with todonotes}
+\begin{itemize}
+\item Only inline notes are supported with
+beamer, but margin notes are supported for normal
+documents.
+\item There is also a handy \mintinline{tex}{\listoftodos} command.
+\begin{itemize}
+	\item To use this load: \mintinline{tex}{\usepackage[colorlinks]{hyperref}} before \mintinline{tex}{\usepackage[colorinlistoftodos]{todonotes}}
+\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Activity}
+\begin{center}
+{\Large \textbf{Activity 3}}
+\end{center}
+
+\end{frame}
+
+
+\section{Bibliography}
+
+\begin{frame}{Bibliography}
+To manage and include references in a LATEX document use \textsc{BibTeX}.\\
+\begin{description}[long text]
+	\item[BibTex]: a bibliographic tool that is used with LaTeX to help organize the user's references and create a bibliography.
+\end{description}
+\begin{itemize}
+	\item A BibTeX user creates a bibliography file with \mintinline{tex}{.bib} extension.
+	\item The \mintinline{tex}{.bib} file is called a BibTEX database.
+	\item Each entry in the \mintinline{tex}{.bib} file is formatted with a certain structure and is given a \alert{"key"} by which the author can refer to it in the source file.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Bibliography}{The BibTEX Format}
+The generic form of a BibTEX entry is
+\begin{center}
+\begin{minted}{tex}
+@type{key, field1 = ‘‘ ’’ or {} or none,
+field2 = ‘‘ ’’ or {} or none, 
+... 
+fieldn = ‘‘ ’’ or {} or none 
+}
+\end{minted}
+\end{center}
+\end{frame}
+\begin{frame}[fragile]{Bibliography}{The BibTEX Format}
+The generic form of a BibTEX entry is
+\begin{center}
+	\footnotesize
+\begin{minted}{tex}
+@INPROCEEDINGS{Pantic2006, 
+author={M. Pantic and R. Zwitserloot}, 
+booktitle={Proceedings. Frontiers in Education. 36th Annual Conference}, 
+title={Active Learning of Introductory Machine Learning}, 
+year={2006}, 
+pages={1-6},  
+doi={10.1109/FIE.2006.322738}, 
+ISSN={0190-5848}, 
+month={Oct},}
+\end{minted}
+\end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Bibliography}{The BibTEX Format}
+\alert{Example:}
+\flushleft{
+\begin{minted}{tex}
+@article{Gettys90,
+author = {Jim Gettys and Phil Karlton and Scott McGregor},
+title = {The {X} Window System, Version 11},
+journal = {Software Practice and Experience},
+volume = {20},
+number = {S2},
+year = {1990},
+abstract = {A technical overview of the X11 functionality.  This is an update
+of the X10 TOG paper by Scheifler \& Gettys.}
+}
+\end{minted}
+}
+\end{frame}
+
+\begin{frame}{Bibliography}{Export .bib file from Mendeley}
+To export BiBTex:
+\begin{enumerate}
+	\item Open Mendeley, and within "My Library" found on the left, select references that you would like to texport to BibTeX.
+	\item In the drop-down menu in the toolbar at the top of the screen, click "File $\rightarrow$ Export.
+	\item In the dropdown list of filetypes chose "BibTeX (*.bib)" and save to the same location as the LaTeX file.
+\end{enumerate}
+
+\alert{More on Mendeley and LaTeX}:\href{http://libguides.mit.edu/c.php?g=176186\&p=1159535\#3}{here}.
+\end{frame}
+
+
+\begin{frame}[<+->]{Bibliography}{Auto-syncing from Mendeley to BibTeX}
+Mendeley has the built-in capability to auto sync a BibTeX file when changes have been made to your Mendeley library.\\
+To set up the Mendeley auto sync:
+\begin{enumerate}
+	\item Go to Mendeley Desktop preferences.
+	\item Select the BibTeX tab. 
+	\item Select the box labeled “Enable BibTeX syncing” and select the BiBTeX file option you prefer.
+	\item Select the location where you want the generated .bib file(s) to be stored (this should be the same location as your LaTeX file(s)).
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]{Activity}
+\begin{center}
+{\Large \textbf{Activity 4}}
+\end{center}
+
+\end{frame}
+
+
+
+\begin{frame}{Bibliography}{Using BibTEX in your LATEX Document}
+To use .bib file in  latex document:
+\begin{itemize}
+	\item We can use \mintinline{tex}{natbib} packages with \mintinline{tex}{\citet and \citep} commands $\Rightarrow$ \href{http://merkel.texture.rocks/Latex/natbib.php}{Reference sheet for natbib usage}.
+	\item Load with \mint{tex}{\usepackage[options]{natbib}} See list of options at the end of \href{http://merkel.texture.rocks/Latex/natbib.php}{Reference sheet for natbib usage}.
+	\item Example: \mintinline{tex}{\usepackage[round]{natbib}}
+	\item Include .bib file at the end of document with \mintinline{tex}{\bibliography{bib file}} and specify a bibliographic styles \mintinline{tex}{\bibliographystyle{stylename}}.
+	
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]{Bibliography}{The BibTEX Format}
+\alert{Example:}
+
+\begin{minted}{tex}
+
+
+\bibliographystyle{apa} %\bibliographystyle{apacite} 
+\newpage
+\bibliography{bib/References_NILM}
+\end{minted}
+\end{frame}
+
+
+\begin{frame}[fragile]{Bibliography}{The BibTEX Format}
+\alert{Example:} 
+\begin{itemize}
+	\item According to \citet{Barker2015} \ldots $\Rightarrow$ \mintinline{tex}{According to \cite{Alcala2015} \ldots}
+	\item \ldots energy is important \citep{Barker2015}  $\Rightarrow$ \mintinline{tex}{\ldots energy is important \citep{Barker2015}}
+\end{itemize}	
+\end{frame}
+
+\begin{frame}[fragile]{Activity}
+\begin{center}
+{\Large \textbf{Activity 5}}
+\end{center}
+
+\end{frame}
+
+\section{Proposal, Thesis and Joural paper with Latex}
+\begin{frame}{Proposal, Thesis and Joural paper with Latex}
+\alert{Folder structure}: create a new folder (your project directory). 
+\begin{itemize}
+	\item  Add some additional folders within this folder:
+	\begin{description}
+		\item [fig] $\Rightarrow$ will contain all images.
+		\item [tex] $\Rightarrow$ will contain \textsc{.tex} file.
+		\item [bib] $\Rightarrow$ will contain bibliography files.
+	\end{description}
+	\item This will help you keep the overview about your files.
+\end{itemize}
+Latex template make life easier.
+\end{frame}
+
+\begin{frame}[fragile]{Activity}
+\begin{center}
+	{\Large \textbf{Activity 6}}
+\end{center}
+
+\end{frame}
+
+\section{Presentation Slides: LaTeX Beamer}
+
+\begin{frame}[fragile]{LaTeX Beamer}
+The beamer class is a LaTeX class that allows you to create a
+beamer presentation and slides.
+\begin{block}{The basic steps to create a beamer presentation }
+	\begin{itemize}
+		\item Specify beamer as document class instead of article.
+		\item Structure your LaTeX text using section and subsection
+		commands.
+		\item Place the text of the individual slides inside frame commands.
+	\end{itemize}
+\end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]{Frames}
+
+Each beamer project is made up of a series of frames defined by \mintinline{tex}{\begin{frame}..\end{frame}} environment.
+\begin{itemize}
+\item Each frame produces one or more slides depending on the slide overlays.
+\end{itemize}
+\begin{description}
+\item[The title page frame:]  simply displays a title page
+\begin{center}
+\mint{tex}{\begin{frame} \titlepage \end{frame}}
+\end{center}
+\item [The table of contents: ] dynamically creates a table of contents
+based on the sections and subsections.
+\end{description}
+\begin{minted}{tex}
+\begin{frame}{Outline}\tableofcontents \end{frame}
+\end{minted}
+\end{frame}
+
+
+\begin{frame}[fragile]{Frame}
+Basic Frame:
+\mint{tex}{\begin{frame}{Tittle}
+content...
+\end{frame}}
+
+\end{frame}
+
+\begin{frame}[fragile]{Sections and Subsections}
+Presentations are divided into sections, subsections, and
+sub-subsections.
+\end{frame}
+
+\begin{frame}[fragile]{Activity}
+\begin{center}
+{\Large \textbf{Activity 7}}
+\end{center}
+
+\end{frame}
+
+\begin{frame}[fragile]{Structuring a Frame}
+Beamer provides many ways to structure your frames so they appear
+well organized and are easy for the audience to follow.
+\begin{itemize}
+\item Columns
+\item Blocks
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Structuring a Frame}\framesubtitle{Coulmns}
+The column environment is called as shown below:
+\begin{center}
+\begin{minted}{tex}
+\begin{columns}
+\column{.xx\textwidth}
+First column text/graphics
+\column{.xx\textwidth}
+Second column text/graphics
+\end{columns}
+\end{minted}
+\end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Structuring a Frame}\framesubtitle{Coulmns}
+Here is a simple example:
+\begin{minted}{tex}
+\begin{columns}
+\column{.5\textwidth}
+Column Number 1
+\column{.5\textwidth}
+Column Number 2
+\end{columns}
+\end{minted}
+\alert{Which gives us}:\\
+\begin{columns}
+\column{.5\textwidth}
+Column Number 1
+\column{.5\textwidth}
+Column Number 2
+\end{columns}	
+\end{frame}
+
+\begin{frame}[fragile]{Structuring a Frame}\framesubtitle{Blocks}
+Blocks can be used to separate a specific section of text or graphics
+from the rest of the frame.
+
+\begin{center}
+\begin{minted}{tex}
+\begin{block}{Block Tittle}
+content...
+\end{block}
+\end{minted}
+\end{center}
+\alert{Which gives us}:\\
+\begin{block}{Block Tittle}
+content...
+\end{block}
+\end{frame}
+
+
+\begin{frame}[fragile]{Structuring a Frame}\framesubtitle{Blocks}
+Other block environments are also available:\\
+\textbf{Theorem block}	
+\begin{center}
+\begin{minted}{tex}
+\begin{theorem}
+$x^2 + y^2 = 1 \rightarrow$ Circle with $r = 1$
+\end{theorem}
+\end{minted}
+\end{center}
+\alert{Which gives us}:\\
+\begin{theorem}
+$x^2 + y^2 = 1 \rightarrow$ Circle with $r = 1$
+\end{theorem}
+\end{frame}
+
+\begin{frame}[fragile]{Structuring a Frame}\framesubtitle{Blocks}
+Other block environments are also available:\\
+\textbf{Example block}	
+\begin{center}
+\begin{minted}{tex}
+\begin{example}
+This is $\ldots$
+\end{example}
+\end{minted}
+\end{center}
+\alert{Which gives us}:\\
+\begin{example}
+This is $\ldots$
+\end{example}
+\end{frame}
+
+\begin{frame}[fragile]{Structuring a Frame}\framesubtitle{Blocks}
+Other block environments are also available:\\
+\textbf{Alert block}	
+\begin{center}
+\begin{minted}{tex}
+\begin{alertblock}{Title}
+This is $\ldots$
+\end{alertblock}
+\end{minted}
+\end{center}
+\alert{Which gives us}:\\
+\begin{alertblock}{Title}
+This is $\ldots$
+\end{alertblock}
+\end{frame}
+
+\begin{frame}[fragile]{Structuring a Frame}\framesubtitle{Blocks}
+Other block environments are also available:\\
+\textbf{Lemma block}	
+\begin{center}
+\begin{minted}{tex}
+\begin{lemma}
+$x^2 + y^2 = 1$ 
+\end{lemma}
+\end{minted}
+\end{center}
+\alert{Which gives us}:\\
+\begin{lemma}
+$x^2 + y^2 = 1 $
+\end{lemma}
+\end{frame}
+
+\begin{frame}[fragile]{Structuring a Frame}\framesubtitle{Blocks}
+Other block environments are also available:\\
+\textbf{Corollary block}	
+\begin{center}
+\begin{minted}{tex}
+\begin{corollary}
+This proof
+\end{corollary}
+\end{minted}
+\end{center}
+\alert{Which gives us}:\\
+\begin{corollary}
+This proof
+\end{corollary}
+\end{frame}
+
+\begin{frame}[fragile]{Structuring a Frame}\framesubtitle{Blocks}
+Other block environments are also available:\\
+\textbf{Proof block}	
+\begin{center}
+\begin{minted}{tex}
+\begin{proof}
+This proof
+\end{proof}
+\end{minted}
+\end{center}
+\alert{Which gives us}:\\
+\begin{proof}
+This proof
+\end{proof}
+\end{frame}
+
+\begin{frame}[fragile]{Structuring a Frame}\framesubtitle{Columns and Blocks}
+
+We can combine columns and blocks to make a much cleaner looking
+presentation.
+\begin{center}
+\begin{minted}{tex}
+\begin{columns}[t]
+\column{.5\textwidth}
+\begin{block}{Column 1 Header}
+Column 1 Body Text
+\end{block}
+\column{.5\textwidth}
+\begin{block}{Column 2 Header}
+Column 2 Body Text
+\end{block}
+\end{columns}
+\end{minted}
+\end{center}
+
+
+\end{frame}
+
+\begin{frame}[fragile]{Structuring a Frame}\framesubtitle{Columns and Blocks}
+\alert{Which gives us}:\\
+\begin{columns}[t]
+\column{.5\textwidth}
+\begin{block}{Column 1 Header}
+Column 1 Body Text
+\end{block}
+\column{.5\textwidth}
+\begin{block}{Column 2 Header}
+Column 2 Body Text
+\end{block}
+\end{columns}
+
+
+\textbf{Note}. Notice that the \mintinline{tex}{[t]} argument to the columns command top-aligned our blocks so they are vertically even as opposed to vertically centered on the slide.
+\end{frame}
+
+
+\begin{frame}[fragile]{Overlay}
+In Beamer, overlays control the order in which parts of the frame
+appear.
+\begin{itemize}
+\item An easy way to implement an overlay is to place the \mintinline{tex}{\pause} command between the parts you want to show up separately.
+\end{itemize}
+
+
+\alert{Example}
+\begin{center}
+\begin{minted}{tex}
+\textbf{Step1:} Compute the maximal value of $x^2$.
+\pause
+\textbf{Step2:} Compute the maximal value of $y^2$.
+\pause
+\textbf{Step3:} Add $x^2$ and $y^2$.
+\end{minted}
+\end{center}
+\end{frame}
+
+
+\begin{frame}[fragile]{Overlay}
+\alert{Which results into:}\\
+
+\textbf{Step1:} Compute the maximal value of $x^2$.\\
+\pause
+\textbf{Step2:} Compute the maximal value of $y^2$.\\
+\pause
+\textbf{Step3:} Add $x^2$ and $y^2$.
+\end{frame}
+
+
+\begin{frame}[fragile]{Overlay}
+\alert{Which results into:}\\
+
+\textbf{Step1:} Compute the maximal value of $x^2$.\\
+\pause
+\textbf{Step2:} Compute the maximal value of $y^2$.\\
+\pause
+\textbf{Step3:} Add $x^2$ and $y^2$.
+\end{frame}
+
+\begin{frame}[fragile]{Overlay Specification}
+Overlay specifications are given in pointed brackets (<,>) and
+indicate which slide the corresponding information should appear
+on.
+\begin{itemize}
+\item The specification \mintinline{tex}{<1->} means “display from slide 1 on.” 
+\item \mintinline{tex}{<1-3>} means “display from slide 1 to slide 3.” 
+\item  \mintinline{tex}{<2>} means “display  slide 2.” 
+\item \mintinline{tex}{<-3,5-6,8->} means “display on all slides except slides 4 and 7.”
+\end{itemize}
+\textbf{Note}: If you want each item of a list to appear in order, use the \mintinline{tex}{[<+->] option}\\
+E.g. \mintinline{tex}{\begin{frame}[<+->]{title} ..... \end{frame}}
+\end{frame}
+
+\begin{frame}[fragile]{Overlay } \framesubtitle{Timing Specifications With Alert}
+\alert{Consider:}
+
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\begin{itemize}[<+-| alert@+>]
+\item Item Aaay
+\item Item Bee
+\item Item See
+\item Item Dee
+\end{itemize}
+\end{column}
+\pause
+\hspace{5pt}\vrule\hspace{5pt}%
+\begin{column}{0.5\textwidth}		
+\begin{minted}{tex}
+\begin{itemize}[<+-| alert@+>]
+\item Item Aaay
+\item Item Bee
+\item Item See
+\item Item Dee
+\end{itemize}
+\end{minted}
+\end{column}
+\end{columns}		
+\end{frame}
+
+
+
+
+\begin{frame}[fragile]{Activity}
+\begin{center}
+{\Large \textbf{Activity 8}}
+\end{center}
+
+\end{frame}
+%-------------------------------------------------------------
+\begin{frame}
+\centering
+\emph{THANK YOU}
+\end{frame}
+
+\begin{frame}[t, allowframebreaks]
+
+\frametitle{References}
+\bibliographystyle{apa} %\bibliographystyle{apacite} 
+\bibliography{bib/References_NILM}
+\end{frame} 
+
+
+\end{document}
+
