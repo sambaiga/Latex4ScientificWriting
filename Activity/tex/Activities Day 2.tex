@@ -167,8 +167,8 @@ Open the Activity.ex file and type the following under Result subsection:
 \section*{{\color{green} Activity 3: To do notes}}
 Open the Activity.ex file and type the following:
 \begin{enumerate}
-	\item Insert \mintinline{tex}{\usepackage[colorlinks]{hyperref}} in your preamble.
-	\item Also load \mintinline{tex}{\usepackage[colorinlistoftodos]{todonotes}}  just after \mintinline{tex}{\usepackage[colorlinks]{hyperref}}.
+	\item Insert \mintinline{tex}{\usepackage{hyperref}} in your preamble.
+	\item Also load \mintinline{tex}{\usepackage{todonotes}}  just after \mintinline{tex}{\usepackage{hyperref}}.
 	\item Experiments with \mintinline{tex}{\todo{text}} commands.
 	\item Try writing \mintinline{tex}{\listoftodos} in the top of your document just after \mintinline{tex}{\listoffigures}. What happens when you typeset?
 \end{enumerate}
@@ -184,11 +184,11 @@ Open the Activity.ex file and type the following:
 \section*{{\color{green} Activity 5: Bibliography }}
 \begin{enumerate}
 	\item Insert \mintinline{tex}{\usepackage{natbib}} in your preamble.
-	\item Define bibliography style just after  with \mintinline{tex}{\usepackage{natbib}} with \mintinline{tex}{\bibliographystyle{plainnat}} command.
+	\item Define bibliography style just after  \mintinline{tex}{\usepackage{natbib}} with \\ \mintinline{tex}{\bibliographystyle{plainnat}} command.
 	\item Include .bib file created in activity 10 at the end of document just before \mintinline{tex}{\end{document}} with \mintinline{tex}{\bibliography{bibfile(without an extension)}}. 
 \item Add a \mintinline{tex}{\citet{key}} and \mintinline{tex}{\citep{key}}  commands some place in your document. What happens ? \textbf{Hints}. To compile bibtex press \mintinline{tex}{F8} followed by \mintinline{tex}{Build & View} button.
 \item  What happens if you use the  \mintinline{tex}{\cite{key}} commands?
-\item  What happens if you change bibliography style to \mintinline{tex}{\bibliographystyle{abbrvnat}}, \mintinline{tex}{\bibliographystyle{agsm}}, \mintinline{tex}{\bibliographystyle{apa}} and \mintinline{tex}{\bibliographystyle{plain}}.
+\item  What happens if you change bibliography style to \mintinline{tex}{\bibliographystyle{abbrvnat}}, \mintinline{tex}{\bibliographystyle{agsm}}, \mintinline{tex}{\bibliographystyle{apa}} and \\ \mintinline{tex}{\bibliographystyle{plain}}.
 \end{enumerate}
 
 \section*{{\color{green} Activity 6: Proposal,  Thesis and Journal Paper }}
@@ -204,8 +204,11 @@ Create a new tex file name it Beamer.tex
 \begin{enumerate}
 \item Define beamer class with \mintinline{tex}{\documentclass{beamer}}
 \item Define title of your presentation with the following command.
-\begin{minted}{tex}
-\title[Proposal]{Machine Learning Student perfomance predctive Model}
+\begin{minted}[
+baselinestretch=1.2,
+fontsize=\footnotesize,
+]{tex}
+\title[Proposal]{Machine Learning Algorithm for Predicting Student's Performance.}
 \subtitle{Concept Note Presentation}
 \author{Neema M., Dr Dinna M.}
 \institute{NM-AIST (CoCSE)}
@@ -249,7 +252,7 @@ Create a new tex file name it Beamer.tex
 \end{itemize}
 \item Add a table of content frame just after a tittle frame.
 \item Create three sections just after table of contents frame say \mintinline{tex}{\section{Introduction}}, \mintinline{tex}{\section{Motivation}} and \mintinline{tex}{\section{Results}}.
-\item Add one frame with some contents under each section. \textbf{Hints}. You may use \mintinline{tex}{\begin{enumerate} \item .. \end{enumerate}} environment to create list of item.
+\item Add one frame with some contents under each section. \\ \textbf{Hints}. You may use \mintinline{tex}{\begin{itemize} \item .. \end{itemize}} environment to create list of item.
 \item Compile and run. What  do you see?
 \end{enumerate}
 
