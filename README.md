@@ -26,7 +26,7 @@ The target audiences for this workshop are Faculty members and Students (Master 
 
 ###   Trainer Profile
 
-The training will be conducted by [Anthony Faustine](sambaiga.github.io), a PhD student at NM-AIST(Electronics and Telecom).
+The training materials have be prepared by [Anthony Faustine](sambaiga.github.io), a PhD machine learning resercher at [IDLab](https://www.ugent.be/ea/idlab/en), [imec](https://www.imec-int.com/en/home), [Ghent University](https://www.ugent.be/en).
 
 ## Software preparation in advance of course  (separate instructions are provided):
 
